@@ -1,0 +1,42 @@
+.portfolio-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .portfolio-card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .portfolio-card-content {
+    padding: 15px;
+  
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+  
+    p {
+      margin-bottom: 15px;
+      color: #666;
+    }
+  
+    a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-weight: bold;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  

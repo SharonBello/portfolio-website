@@ -1,0 +1,71 @@
+.lesson-planner-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  max-width: 400px;
+  margin: auto;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .lesson-planner-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #6c63ff;
+    text-align: center;
+  }
+
+  .chat-area {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+  }
+
+  .message {
+    margin-bottom: 10px;
+
+    .user-message {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .bot-message {
+      font-size: 0.9rem;
+      color: #6c63ff;
+    }
+  }
+
+  .input-area {
+    display: flex;
+    gap: 10px;
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+
+      &:hover {
+        background-color: #5a52e6;
+      }
+    }
+  }
+}
