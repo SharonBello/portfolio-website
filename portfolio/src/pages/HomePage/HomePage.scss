@@ -1,53 +1,165 @@
-.home-page {
+.homepage {
+  &__hero-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40vh;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    @media (max-width: 900px) {
+      height: 50vh;
+      text-align: center;
+    }
+
+    &-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .homepage__title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+
+      @media (max-width: 900px) {
+        font-size: 2rem;
+      }
+    }
+
+    .homepage__subtitle {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
+    }
+
+    .homepage__button {
+      background-color: #415161;
+      color: white;
+      text-transform: none;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #333f4a;
+      }
+    }
   }
-  
-  .main-content {
-    display: flex;
-    padding: 20px;
-    gap: 20px;
+
+  &__content {
+    margin-top: 32px;
+    text-align: center;
+
+    .homepage__content-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 24px;
+
+      @media (max-width: 900px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .homepage__list {
+      text-align: left;
+      padding-left: 40px;
+
+      li {
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+    }
   }
-  
-  /* Sidebar Styles */
-  .sidebar {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff; // Fallback background color
+
+  .hero-section__intro {
+    text-align: center;
+    margin: 32px auto;
+
+    .intro-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .intro-description {
+      font-size: 1.125rem;
+      margin-bottom: 24px;
+      color: #646464;
+    }
+
+    .intro-button {
+      background-color: #415161;
+      color: white;
+      text-transform: none;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #333f4a;
+      }
+    }
   }
-  
-  .profile-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 15px;
+
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    color: #333;
+
+    .catch-phrase {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .catch-phrase-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      .hero-stats-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        li {
+          font-size: 1rem;
+          line-height: 1.5;
+
+          strong {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 1.25rem;
+            color: #415161;
+          }
+        }
+
+        .hero-divider {
+          width: 1px;
+          height: 100%;
+          background-color: #ccc;
+        }
+      }
+    }
   }
-  
-  .message-button {
-    background-color: #6c63ff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .work-experience,
-  .skills {
-    margin-top: 20px;
-  }
-  
-  /* Portfolio Styles */
-  .portfolio {
-    flex: 3;
-  }
-  
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
+}

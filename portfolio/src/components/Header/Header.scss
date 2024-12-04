@@ -1,7 +1,137 @@
+@import "../../styles/global-styles/setup/colors.scss";
+
 .header {
-    background-color: #6c63ff;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+  background-color: $background-white !important;
+  color: $text-black;
+  box-shadow: none;
+
+  &__toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 900px) {
+      flex-direction: row;
+    }
   }
-  
+
+  &__logo {
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    .header__title {
+      color: $text-dark-blue;
+      padding: 1em 0 .5em !important;
+      font-size: clamp(2em, 5vw, 2.75em);
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: top;
+
+      &:hover {
+        color: $text-dark-gray;
+      }
+    }
+  }
+
+  // &__menu-icon {
+  //   display: none;
+
+  //   @media (max-width: 900px) {
+  //     display: block;
+  //     color: $text-black;
+  //   }
+  // }
+
+  &__nav-links {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: $background-white;
+    border-bottom: 0.5px solid $border-light-gray;
+    margin: 0 auto;
+    max-width: 1024px;
+    list-style: none;
+    text-align: center;
+    padding-block-end: 0.75em;
+
+
+    @media (max-width: 900px) {
+      display: none;
+    }
+
+    .header__nav-link {
+      font-size: 1.2rem;
+      text-transform: none;
+      color: $text-light-gray;
+      text-decoration: none;
+      padding: 1em 1.75em;
+
+      &:hover {
+        color: $text-dark-gray;
+      }
+
+      &.active {
+        color: $text-dark-gray;
+        font-weight: 500;
+      }
+    }
+  }
+
+  // &__drawer {
+  //   &-list {
+  //     width: 250px;
+
+  //     .header__drawer-item {
+  //       padding: 8px 16px;
+
+  //       a {
+  //         color: $text-black;
+  //         text-decoration: none;
+
+  //         &:hover {
+  //           color: $text-dark-gray;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+}
+
+.header__drawer {
+  .header__drawer-item {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+
+    .header__drawer-link {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #515151; // Text color for links
+      display: block;
+
+      &:hover {
+        color: #415161; // Darker color on hover
+      }
+
+      &.active {
+        color: #ffb703; // Accent color for active link
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.header__menu-icon {
+  display: none; // Hidden by default
+
+  @media (max-width: 900px) {
+    display: block; // Show on small screens
+    padding: 1em 0 0.5em !important;
+  }
+
+  color: $border-dark-blue !important;
+}
+

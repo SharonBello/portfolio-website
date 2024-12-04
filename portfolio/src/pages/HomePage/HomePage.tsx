@@ -1,173 +1,190 @@
-import React, { useState } from 'react';
-import { Box, Container, Typography, Modal } from '@mui/material';
-import Grid from '@mui/material/Grid2';
-import Header from '../../components/Header';
-import PortfolioCard from '../../components/PortfolioCard';
-// import ContactForm from '../../components/ContactForm';
+import React from 'react';
+import Particles from 'react-tsparticles';
+import type { ISourceOptions } from 'tsparticles-engine';
+import './HomePage.scss';
+import { Button, Typography, Box, Container } from '@mui/material';
+import { useCallback } from "react";
+//import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
+import { loadSlim } from "tsparticles-slim";
 
-const portfolioItems = [
-  {
-    title: "Social Engineering: How Hackers Steal Your Data",
-    description: "Learn about social engineering tactics and how to protect yourself.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 1.",
-  },
-  {
-    title: "Diversity & Inclusion",
-    description: "Learn about diversity and inclusion principles.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 2.",
-  },
-  {
-    title: "Working on a Project: Goal Setting",
-    description: "Set clear goals to drive project success.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 3.",
-  },
-  {
-    title: "Time Management Tips",
-    description: "Discover effective time management strategies.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 4.",
-  },
-  {
-    title: "Effective Communication Skills",
-    description: "Improve your communication in professional settings.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 5.",
-  },
-  {
-    title: "Leadership and Teamwork",
-    description: "Learn how to lead and collaborate effectively.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 6.",
-  },
-];
+const HeroSection: React.FC = () => {
 
-const HomePage: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<null | typeof portfolioItems[0]>(null);
+  const particlesInit = useCallback(async (engine: any) => {
+    console.log(engine);
+    await loadSlim(engine);
+  }, []);
 
-  const handleCardClick = (item: typeof portfolioItems[0]) => {
-    setSelectedProject(item);
-  };
+  const particlesLoaded = useCallback(async (container: any) => {
+    await console.log(container);
+  }, []);
 
-  const handleCloseModal = () => {
-    setSelectedProject(null);
+
+  const particlesOptions: ISourceOptions = {
+    background: {
+      color: {
+        value: "#ffffff", // Background color
+      },
+    },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        onHover: {
+          enable: true,
+          mode: "repulse",
+        },
+        resize: true,
+      },
+      modes: {
+        push: {
+          quantity: 4,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+      },
+    },
+    particles: {
+      color: {
+        value: "#415161", // Particle color
+      },
+      links: {
+        color: "#415161",
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      collisions: {
+        enable: true,
+      },
+      move: {
+        direction: "none", // Correctly typed value
+        enable: true,
+        outModes: {
+          default: "bounce",
+        },
+        random: false,
+        speed: 2,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 50,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 1, max: 5 },
+      },
+    },
+    detectRetina: true,
   };
 
   return (
-    <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Full-width Header */}
-      <Box sx={{ width: '100%', backgroundColor: '#6c63ff', color: '#fff' }}>
-        <Header />
-      </Box>
-
-      <Container component="main" sx={{ py: 4 }}>
-        <Grid container spacing={4}>
-          {/* Sidebar Section */}
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                boxShadow: 2,
-              }}
-            >
-              <Box sx={{ textAlign: 'center', mb: 3 }}>
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Profile"
-                  style={{
-                    width: 100,
-                    height: 100,
-                    borderRadius: '50%',
-                    marginBottom: 10,
-                  }}
-                />
-                <Typography variant="h6">Sharon Bello</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Instructional Designer
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                  Work Experience
-                </Typography>
-                <Typography variant="body2">Spring (2021 – Present)</Typography>
-              </Box>
-              <Box sx={{ mt: 3 }}>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                  Skills
-                </Typography>
-                <Typography variant="body2">React</Typography>
-                <Typography variant="body2">Photoshop</Typography>
-                <Typography variant="body2">Illustrator</Typography>
-              </Box>
-            </Box>
-          </Grid>
-
-          {/* Portfolio Section */}
-          <Grid size={{ xs: 12, md: 8 }}>
-            {/* <Typography variant="h4" gutterBottom>
-              Portfolio
-            </Typography> */}
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              {portfolioItems.map((item, index) => (
-                <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
-                  <PortfolioCard
-                    title={item.title}
-                    description={item.description}
-                    image={item.image}
-                    link="#"
-                    onClick={() => handleCardClick(item)}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-
-          {/* Contact Form Section */}
-          {/* <Grid size={{ xs: 12, md: 8 }}>
-            <Typography variant="h4" gutterBottom>
-              Contact Me
+    <Box className="homepage">
+      <section className="hero-section">
+        {/* Text + Button Above Hero */}
+        <Container maxWidth="lg">
+          <Box className="hero-section__intro">
+            <Typography variant="h4" className="intro-title">
+              Elevate Your Learning Experience
             </Typography>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
-              <ContactForm />
-            </Box>
-          </Grid> */}
-        </Grid>
-      </Container>
+            <Typography variant="body1" className="intro-description">
+              I design innovative learning solutions that simplify complex ideas, inspire growth, and empower organizations to achieve excellence.
+            </Typography>
+            <Button variant="contained" className="intro-button">
+              Get in Touch
+            </Button>
+          </Box>
+        </Container>
 
-      {/* Modal for Card Details */}
-      <Modal open={!!selectedProject} onClose={handleCloseModal}>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '90%',
-            maxWidth: 400,
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            borderRadius: 2,
-            p: 4,
-          }}
-        >
-          <Typography variant="h5" sx={{ mb: 2 }}>
-            {selectedProject?.title}
+        {/* Particle Background */}
+        <Particles id="tsparticles" options={particlesOptions} init={particlesInit} loaded={particlesLoaded} />
+
+        {/* Hero Content */}
+        <div className="hero-content">
+          <h1 className="catch-phrase">Your Learning Journey Made Easy</h1>
+          <p className="catch-phrase-subtitle">Innovative, Effective, Engaging</p>
+
+          {/* Hero Stats */}
+          <aside className="hero-stats">
+            <ul className="hero-stats-list">
+              <li>
+                Interactive Learning Solutions<br />
+                <strong>
+                  <span>95%</span>
+                  <br />
+                  Engagement Rates
+                </strong>
+              </li>
+              <hr className="hero-divider" />
+              <li>
+                Advanced Tools & Technology<br />
+                <strong>
+                  <span>10+</span>
+                  <br />
+                  Cutting-Edge Platforms
+                </strong>
+              </li>
+              <hr className="hero-divider" />
+              <li>
+                Scalable, Reliable, Impactful<br />
+                <strong>
+                  <span>24/7</span>
+                  <br />
+                  Learning Support
+                </strong>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <Container maxWidth="lg">
+        <Box className="homepage__content">
+          <Typography variant="h4" className="homepage__content-title">
+            What I have to offer as an Instructional Designer
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            {selectedProject?.details}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {selectedProject?.description}
-          </Typography>
+          <ul className="homepage__list">
+            <li>
+              Expertise in creating learner-centered instructional designs and adaptive learning solutions tailored to diverse audiences, simplifying complex concepts to inspire innovation and drive growth.
+            </li>
+            <li>
+              Extensive experience in developing impactful curricula, including structured learning modules, onboarding materials, and interactive activities that foster meaningful and measurable learning outcomes.
+            </li>
+            <li>
+              Proven ability to leverage cutting-edge tools such as Articulate Storyline, Rise 360, Moodle, and Canvas to design and deliver engaging learning experiences aligned with organizational goals.
+            </li>
+            <li>
+              Strong technical skills, including proficiency in web development (HTML5, CSS3, JavaScript, React, and Node.js), multimedia tools (Adobe Creative Cloud, Figma, Camtasia), and learning analytics platforms like Google Analytics and LMS analytics to optimize learning strategies and user engagement.
+            </li>
+            <li>
+              Demonstrated success in managing large-scale educational projects, supporting up to 200+ learners weekly through data-driven monitoring and personalized instructional adjustments to enhance outcomes.
+            </li>
+            <li>
+              Skilled at integrating technology in education, including the design and deployment of innovative apps and learning solutions for international programs, such as entrepreneurship challenges and design thinking workshops.
+            </li>
+            <li>
+              Accomplished in collaborative and leadership roles, fostering cross-disciplinary teamwork and mentoring professionals to achieve excellence in both educational and professional contexts.
+            </li>
+          </ul>
         </Box>
-      </Modal>
+      </Container>
     </Box>
   );
 };
 
-export default HomePage;
+export default HeroSection;
