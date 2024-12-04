@@ -95,65 +95,30 @@ const HeroSection: React.FC = () => {
   return (
     <Box className="homepage">
       <section className="hero-section">
-        {/* Text + Button Above Hero */}
-        <Container maxWidth="lg">
-          <Box className="hero-section__intro">
-            <Typography variant="h4" className="intro-title">
-              Elevate Your Learning Experience
-            </Typography>
-            <Typography variant="body1" className="intro-description">
-              I design innovative learning solutions that simplify complex ideas, inspire growth, and empower organizations to achieve excellence.
-            </Typography>
-            <Button variant="contained" className="intro-button">
-              Get in Touch
-            </Button>
-          </Box>
-        </Container>
-
         {/* Particle Background */}
-        <Particles id="tsparticles" options={particlesOptions} init={particlesInit} loaded={particlesLoaded} />
-
-        {/* Hero Content */}
-        <div className="hero-content">
-          <h1 className="catch-phrase">Your Learning Journey Made Easy</h1>
-          <p className="catch-phrase-subtitle">Innovative, Effective, Engaging</p>
-
-          {/* Hero Stats */}
-          <aside className="hero-stats">
-            <ul className="hero-stats-list">
-              <li>
-                Interactive Learning Solutions<br />
-                <strong>
-                  <span>95%</span>
-                  <br />
-                  Engagement Rates
-                </strong>
-              </li>
-              <hr className="hero-divider" />
-              <li>
-                Advanced Tools & Technology<br />
-                <strong>
-                  <span>10+</span>
-                  <br />
-                  Cutting-Edge Platforms
-                </strong>
-              </li>
-              <hr className="hero-divider" />
-              <li>
-                Scalable, Reliable, Impactful<br />
-                <strong>
-                  <span>24/7</span>
-                  <br />
-                  Learning Support
-                </strong>
-              </li>
-            </ul>
-          </aside>
+        <div id="tsparticles-container">
+          <Particles id="tsparticles" options={particlesOptions} init={particlesInit} loaded={particlesLoaded} />
+        </div>
+        {/* Text + Button Above Hero */}
+        <div className="hero-section__content">
+          <Container maxWidth="lg">
+            <Box className="hero-section__intro">
+              <Typography variant="h4" className="intro-title">
+                Elevate Your Learning Experience
+              </Typography>
+              <Typography variant="body1" className="intro-description">
+                I design innovative learning solutions that simplify complex ideas, inspire growth, and empower organizations to achieve excellence.
+              </Typography>
+              <Button variant="contained" className="intro-button">
+                Get in Touch
+              </Button>
+            </Box>
+          </Container>
         </div>
       </section>
 
       {/* Content Section */}
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="homepage__content-container">
         <Box className="homepage__content">
           <Typography variant="h4" className="homepage__content-title">
             What I have to offer as an Instructional Designer
