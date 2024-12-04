@@ -1,24 +1,36 @@
 import React from 'react';
-import './PortfolioCard.scss';
+import { Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 
 interface PortfolioCardProps {
   title: string;
   description: string;
   image: string;
   link: string;
+  onClick?: () => void;
 }
 
 const PortfolioCard: React.FC<PortfolioCardProps> = ({ title, description, image, link }) => (
-  <div className="portfolio-card">
-    <img src={image} alt={title} className="portfolio-card-image" />
-    <div className="portfolio-card-content">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer">
+  <Card sx={{ maxWidth: '100%' }}>
+    <CardMedia
+      component="img"
+      height="140"
+      image={image}
+      alt={title}
+    />
+    <CardContent>
+      <Typography variant="h6" component="div">
+        {title}
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        {description}
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small" color="primary" href={link} target="_blank">
         View Project
-      </a>
-    </div>
-  </div>
+      </Button>
+    </CardActions>
+  </Card>
 );
 
 export default PortfolioCard;
