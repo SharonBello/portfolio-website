@@ -6,9 +6,9 @@ import './HomePage.scss';
 import { Container, Typography, Card, CardContent, Box, Button } from '@mui/material';
 import Slider from 'react-slick';
 import { useCallback } from "react";
-//import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const settings = {
   dots: true,
@@ -142,7 +142,10 @@ const HeroSection: React.FC = () => {
                 Step into a world where <b>learning</b> becomes an inspiring <b>adventure</b>, where innovative <b>solutions</b> not only illuminate complex ideas but also empower <b>growth</b>, spark creativity, and drive excellence and <b>success</b>.
               </Typography>
               <Box className="hero-buttons">
-                <Button variant="contained" className="hero-button primary"
+                <Button
+                  variant="contained"
+                  className="hero-button primary"
+                  startIcon={<WhatsAppIcon />}
                   onClick={() => {
                     window.open(
                       "https://wa.me/972544767146?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8",

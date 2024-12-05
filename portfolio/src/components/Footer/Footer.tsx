@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
         <IconButton
           aria-label="Send Email"
           color="inherit"
-          href="mailto:your-email@gmail.com"
+          href="mailto:sharonbellotech@gmail.com"
           target="_blank"
         >
           <EmailIcon />
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         <IconButton
           aria-label="LinkedIn"
           color="inherit"
-          href="https://www.linkedin.com/in/your-profile"
+          href="https://www.linkedin.com/in/sharon-bello-tech/"
           target="_blank"
         >
           <LinkedInIcon />
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
         <IconButton
           aria-label="GitHub"
           color="inherit"
-          href="https://github.com/your-github"
+          href="https://github.com/SharonBello"
           target="_blank"
         >
           <GitHubIcon />
