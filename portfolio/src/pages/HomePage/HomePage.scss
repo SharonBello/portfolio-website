@@ -15,7 +15,33 @@
       height: 100%;
       width: 100%;
       z-index: 0;
-      /* Particles in the background */
+      overflow: hidden;
+      background: -moz-radial-gradient(center,
+          ellipse cover,
+          $background-white 0%,
+          $background-dark-blue 100%);
+      background: -webkit-gradient(radial,
+          center center,
+          0px,
+          center center,
+          100%,
+          color-stop(0%, $background-white),
+          color-stop(100%, $background-dark-blue));
+      background: -webkit-radial-gradient(center,
+          ellipse cover,
+          $background-white 0%,
+          $background-dark-blue 100%);
+      background: -o-radial-gradient(center,
+          ellipse cover,
+          $background-white 0%,
+          $background-dark-blue 100%);
+      background: -ms-radial-gradient(center,
+          ellipse cover,
+          $background-white 0%,
+          $background-dark-blue 100%);
+      background: radial-gradient(ellipse at center,
+          $background-white 0%,
+          $background-dark-blue 100%);
     }
 
     #tsparticles {
@@ -26,7 +52,6 @@
 
     &__content {
       position: relative;
-      /* Content above particles */
       z-index: 1;
       display: flex;
       align-items: center;
@@ -36,25 +61,71 @@
 
       .hero-section__intro {
         .intro-title {
-          font-size: 2rem;
-          font-weight: bold;
+          font-size: clamp(1.2em, 2.3em, 2.7em);
+          font-weight: 600;
           margin-bottom: 16px;
+          color: $text-white;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+          // @media (max-width: 768px) {
+          //   font-size: 2rem;
+          // }
         }
 
         .intro-description {
-          font-size: 1.125rem;
-          margin-bottom: 24px;
-          color: #646464;
+          font-size: 1.25rem;
+          // margin-bottom: 24px;
+          color: $text-dark-blue;
+          max-width: calc(60vw);
+          text-align: center;
+          margin: 1em auto 1.5em;
+
+          @media (max-width: 768px) {
+            font-size: 1rem;
+          }
         }
 
-        .intro-button {
-          background-color: #415161;
-          color: white;
-          text-transform: none;
-          font-weight: bold;
+        .hero-buttons {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
 
-          &:hover {
-            background-color: #333f4a;
+          .hero-button {
+            font-size: 1rem;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-transform: none;
+            font-weight: bold;
+
+            &.primary {
+              background-color: $accent1;
+              color: $background-white;
+
+              &:hover {
+                background-color: $accent1;
+              }
+            }
+
+            &.secondary {
+              color: $accent1;
+              font-weight: bold;
+
+              &:hover {
+                color: $accent1;
+
+                svg {
+                  transform: translateX(5px);
+                  /* Adds a slight animation on hover */
+                  transition: transform 0.2s ease;
+                }
+              }
+
+              svg {
+                font-size: 1rem;
+                margin-left: 4px;
+                transition: transform 0.2s ease;
+              }
+            }
           }
         }
       }
@@ -65,9 +136,9 @@
     background-color: $background-white;
     z-index: 5;
     position: relative;
-    border-top: 3.5px solid $border-light-gray;
+    // border-top: 3.5px solid $border-light-gray;
     width: 100%;
-    margin: 0 auto;
+    margin: 4em auto;
 
     .homepage__content {
       padding-block: calc(4vh);
@@ -86,4 +157,40 @@ canvas {
   max-height: 60vh !important;
   z-index: 0 !important;
   margin-top: 10vh !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+
+
+  .MuiCard-root {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .MuiCardContent-root {
+      text-align: center;
+    }
+  }
+}
+
+.slick-dots {
+  bottom: -30px;
+
+  li button:before {
+    color: $accent;
+    font-size: 12px;
+  }
+
+  li.slick-active button:before {
+    color: $background-dark-gray;
+  }
 }

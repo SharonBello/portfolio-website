@@ -1,13 +1,50 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Particles from 'react-tsparticles';
 import type { ISourceOptions } from 'tsparticles-engine';
 import './HomePage.scss';
-import { Button, Typography, Box, Container } from '@mui/material';
+import { Container, Typography, Card, CardContent, Box, Button } from '@mui/material';
+import Slider from 'react-slick';
 import { useCallback } from "react";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3, // Show 3 cards initially
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  responsive: [
+    {
+      breakpoint: 960, // Show 2 cards for tablets
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 600, // Show 1 card for mobile
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const cardData = [
+    { title: 'Bringing Ideas to Life', description: 'Transforming complex concepts into engaging, learner-centered experiences that spark curiosity and inspire growth.' },
+    { title: 'Crafting Learning Journeys', description: 'Designing interactive curricula and experiences that leave a lasting impact and deliver measurable success.' },
+    { title: 'Modern Tools', description: 'Harnessing the latest tools like Storyline, Rise 360, and Moodle to create seamless and effective learning solutions.' },
+    { title: 'Mastering Technology', description: 'From multimedia design to analytics, leveraging technology to enhance engagement and optimize learning strategies.' },
+    { title: 'Scaling Success', description: 'Driving large-scale learning initiatives with precision, supporting learners through personalized, data-driven approaches.' },
+    { title: 'Fostering Excellence', description: 'Building strong teams, mentoring professionals, and leading cross-disciplinary efforts to achieve impactful results.' },
+  ];
 
   const particlesInit = useCallback(async (engine: any) => {
     console.log(engine);
@@ -20,11 +57,6 @@ const HeroSection: React.FC = () => {
 
 
   const particlesOptions: ISourceOptions = {
-    background: {
-      color: {
-        value: "#ffffff", // Background color
-      },
-    },
     fpsLimit: 60,
     interactivity: {
       events: {
@@ -50,10 +82,10 @@ const HeroSection: React.FC = () => {
     },
     particles: {
       color: {
-        value: "#415161", // Particle color
+        value: "#ffffff", // Particle color
       },
       links: {
-        color: "#415161",
+        color: "#ffffff",
         distance: 150,
         enable: true,
         opacity: 0.5,
@@ -103,49 +135,96 @@ const HeroSection: React.FC = () => {
         <div className="hero-section__content">
           <Container maxWidth="lg">
             <Box className="hero-section__intro">
-              <Typography variant="h4" className="intro-title">
-                Elevate Your Learning Experience
+              <Typography variant="h3" className="intro-title">
+                Learning Experience Developer
               </Typography>
               <Typography variant="body1" className="intro-description">
-                I design innovative learning solutions that simplify complex ideas, inspire growth, and empower organizations to achieve excellence.
+                Step into a world where <b>learning</b> becomes an inspiring <b>adventure</b>, where innovative <b>solutions</b> not only illuminate complex ideas but also empower <b>growth</b>, spark creativity, and drive excellence and <b>success</b>.
               </Typography>
-              <Button variant="contained" className="intro-button">
-                Get in Touch
-              </Button>
+              <Box className="hero-buttons">
+                <Button variant="contained" className="hero-button primary"
+                  onClick={() => {
+                    window.open(
+                      "https://wa.me/972544767146?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A6%D7%95%D7%A8%20%D7%A7%D7%A9%D7%A8",
+                      "_blank"
+                    );
+                  }}
+                >
+                  Get in Touch
+                </Button>
+                <Button
+                  variant="text"
+                  className="hero-button secondary"
+                  onClick={() => navigate("/instructional-design-portfolio")}
+                  endIcon={<ArrowForwardIosIcon style={{ fontSize: "1rem" }} />}
+                >
+                  Explore My Work
+                </Button>
+              </Box>
             </Box>
           </Container>
         </div>
       </section>
 
       {/* Content Section */}
-      <Container maxWidth="lg" className="homepage__content-container">
-        <Box className="homepage__content">
-          <Typography variant="h4" className="homepage__content-title">
-            What I have to offer as an Instructional Designer
+      <Container className="homepage__content-container">
+        <Box sx={{ mt: 4, px: 2 }}>
+          <Typography variant="h4" align="center" gutterBottom>
+            What I Have to Offer as an Learning Developer
           </Typography>
-          <ul className="homepage__list">
-            <li>
-              Expertise in creating learner-centered instructional designs and adaptive learning solutions tailored to diverse audiences, simplifying complex concepts to inspire innovation and drive growth.
-            </li>
-            <li>
-              Extensive experience in developing impactful curricula, including structured learning modules, onboarding materials, and interactive activities that foster meaningful and measurable learning outcomes.
-            </li>
-            <li>
-              Proven ability to leverage cutting-edge tools such as Articulate Storyline, Rise 360, Moodle, and Canvas to design and deliver engaging learning experiences aligned with organizational goals.
-            </li>
-            <li>
-              Strong technical skills, including proficiency in web development (HTML5, CSS3, JavaScript, React, and Node.js), multimedia tools (Adobe Creative Cloud, Figma, Camtasia), and learning analytics platforms like Google Analytics and LMS analytics to optimize learning strategies and user engagement.
-            </li>
-            <li>
-              Demonstrated success in managing large-scale educational projects, supporting up to 200+ learners weekly through data-driven monitoring and personalized instructional adjustments to enhance outcomes.
-            </li>
-            <li>
-              Skilled at integrating technology in education, including the design and deployment of innovative apps and learning solutions for international programs, such as entrepreneurship challenges and design thinking workshops.
-            </li>
-            <li>
-              Accomplished in collaborative and leadership roles, fostering cross-disciplinary teamwork and mentoring professionals to achieve excellence in both educational and professional contexts.
-            </li>
-          </ul>
+          <Slider {...settings}>
+            {cardData.map((card, index) => (
+              <Box key={index} sx={{ px: 2 }}>
+                <Card elevation={3} sx={{ maxWidth: 400, margin: '0 auto' }}>
+                  <CardContent>
+                    <Typography
+                      variant="h6"
+                      component="div"
+                      gutterBottom
+                      sx={{
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word',
+                        pb: 1,
+                      }}
+                    >
+                      {card.title}
+                      <Box
+                        sx={{
+                          content: '""',
+                          display: 'block',
+                          width: '40px',
+                          height: '3px',
+                          backgroundColor: '#FFCB74',
+                          margin: '8px auto 0',
+                        }}
+                      />
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="#415161"
+                      sx={{
+                        textAlign: 'center',
+                        fontSize: {
+                          xs: '0.875rem', // Extra-small screens
+                          sm: '1rem', // Small screens
+                          md: '1.125rem', // Medium screens
+                        },
+                        lineHeight: {
+                          xs: '1.4',
+                          sm: '1.6',
+                          md: '1.8',
+                        },
+                      }}
+                    >
+                      {card.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
+            ))}
+          </Slider>
         </Box>
       </Container>
     </Box>
