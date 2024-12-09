@@ -1,210 +1,192 @@
-import React from 'react';
-import { Box, Card, CardContent, Typography, List, ListItem } from '@mui/material';
-import Masonry from '@mui/lab/Masonry';
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import WorkIcon from '@mui/icons-material/Work';
+import React from "react";
+import "./Resume.scss";
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { Box, Avatar, Typography } from "@mui/material";
+import ResumeHelper from "./ResumeHelper";
+import ProfilePic from "../../styles/images/profile-pic.png";
+import Slider from "react-slick";
 
 const Resume: React.FC = () => {
-  const cardsData = [
-    {
-      title: 'Summary',
-      content: `Innovative and accomplished Instructional Designer and Learning Developer with expertise in creating impactful, learner-centered journeys. Extensive experience in instructional design, curriculum development, and technological integration for diverse audiences. Specializes in crafting adaptive learning solutions that simplify complex concepts, inspire innovation, and drive personal and professional growth. Proven ability to deliver transformative educational programs by blending creativity, strategy, and cutting-edge tools to empower individuals and organizations to achieve meaningful learning outcomes.`,
-    },
-    {
-      title: 'Tech Skills',
-      content: `
-      - Articulate Storyline, Rise 360, LMS platforms (Moodle, Canvas, TalentLMS).
-      - Adobe Creative Cloud (Photoshop, Illustrator, XD), Figma, Camtasia, H5P, Canva.
-      - Web Development and Programming: HTML5, CSS3/SASS, JavaScript (ES6), React, Node.js, Angular.
-      - Analytics: Google Analytics, Tag Manager, LMS analytics, SolarWinds, HotJar, BrowserStack.`,
-    },
-    {
-      title: 'Education',
-      content: `
-      - M.A - Innovation track in Information Systems & Education with honors (2023)
-      - Coding Academy Full-Stack Bootcamp (2022)
-      - Teaching Certificate of English as a Second Language with honors (2017)
-      - B.Ed. Des - Bachelor in Fashion and Textile Design with highest honors (2002).`,
-    },
-    {
-      title: 'Volunteer Work',
-      content: `SheCodes – Frontend Track mentor at the Tel-Aviv University Branch (2022).`,
-    },
-    {
-      title: 'Languages',
-      content: `Hebrew, English, Portuguese.`,
-    },
-  ];
+  const { summary, education, timeline, skills, volunteer, languages } = ResumeHelper;
 
-  const experiences = [
-    {
-      title: 'Instructional Designer & Learning Developer',
-      company: 'Girls Plus – Girls Technovation Challenge',
-      date: '2024 - Present',
-      year: '2024',
-      description: `
-      - Designed a comprehensive curriculum for mentors and instructors to guide teenage girls in an innovation and entrepreneurship program as a part of an international challenge.
-      - Developed onboarding materials, structured learning modules, and engaging activities to enhance mentoring and instructional effectiveness for programming skills, design and creative thinking, video editing, script writing, and marketing and business plans.
-      - Enhanced mentoring skills with "How to Mentor" guides, fostering impactful mentor-mentee relationships.
-      - Guided participants through the creation of innovative apps and business plans, culminating in a working app, video pitch, and app demo.`,
-    },
-    {
-      title: 'Full Stack Developer',
-      company: 'Treetoscope',
-      date: '2022 - 2024',
-      year: '2022',
-      description: `
-      - Developed Frontend using React, Redux, and SCSS, and Backend using Node.js, Nest, and AWS infrastructure. Integrated AWS services such as Amplify, Cognito, RDS, IAM, EC2, S3, SNS, SWS.
-      - Created a comprehensive app structure chart and XML-based documentation to streamline onboarding, visually represent system architecture, and standardize communication of app functionality.
-      - Implemented data analytics tools (Google Analytics, Tag Manager) to monitor platform performance and user engagement.`,
-    },
-    {
-      title: 'Information and Technology Coordinator, Design & English Teacher',
-      company: 'Cramim HS',
-      date: '2016 - 2021',
-      year: '2016',
-      description: `
-      - Created and maintained ICT policies, procedures, and reference guides, supporting the effective use of technology in educational environments.
-      - Monitored and managed the weekly learning progress of 200+ students, analyzing data to inform instructional adjustments and improve learning outcomes.
-      - Planned and executed a yearly curriculum, including both in-class and remote learning components, ensuring alignment with pedagogical goals and technological advancements while monitoring and analyzing its effectiveness.`,
-    },
-    {
-      title: 'Design Director',
-      company: 'Kidichick Ltd.',
-      date: '2007 - 2015',
-      year: '2007',
-      description: `
-      - Directed creative teams in conceptualizing and delivering high-quality design projects, adhering to timelines and budgets.
-      - Fostered team development and introduced innovative approaches to enhance client deliverables.
-      - Developed strategic design plans with projected timelines and budgets for key collections.`,
-    },
-  ];
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 2000, // Set the autoplay speed (in milliseconds)
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        padding: '32px 16px',
-        backgroundColor: '#f9f9f9',
-        gap: 4,
-        alignItems: 'stretch',
-      }}
-    >
-      {/* Left Side: Masonry */}
-      <Box
-        sx={{
-          flex: 7,
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 2,
-          minWidth: '4em',
-          flexGrow: 1,
-        }}
-      >
-        <Masonry columns={{ xs: 1, sm: 2, md: 2 }} spacing={2}>
-          {cardsData.map((card, index) => (
-            <Card
-              elevation={3}
-              key={index}
-              sx={{
-                gridColumn: index === 0 ? 'span 2' : 'auto', // Summary takes double width
-                gridRow: index === 0 ? 'span 2' : 'auto', // Summary takes more height
-              }}
-            >
-              <CardContent>
-                <Typography variant="h5" gutterBottom>
-                  {card.title}
-                </Typography>
-                {Array.isArray(card.content) ? (
-                  <List>
-                    {card.content.map((item, idx) => (
-                      <ListItem key={idx} sx={{ paddingLeft: 0, marginBottom: 1 }}>
-                        - {item}
-                      </ListItem>
-                    ))}
-                  </List>
-                ) : (
-                  <Typography variant="body2" sx={{ lineHeight: 1.6 }}>
-                    {card.content}
-                  </Typography>
-                )}
-              </CardContent>
-            </Card>
-          ))}
-        </Masonry>
-      </Box>
+    <div className="resume-container">
+      {/* Row 1: Picture and Summary */}
+      <div className="picture">
+        <Avatar
+          alt="Profile Picture"
+          src={ProfilePic}
+          sx={{
+            width: 200,
+            height: 200,
+            boxShadow: "0 0 0 8px white, 0 4px 6px rgba(0, 0, 0, 0.1)",
+          }}
+        />
+      </div>
 
-      {/* Right Side: Timeline */}
-      <Box
-        sx={{
-          flex: 5,
-          maxHeight: 'calc(100vh - 64px)',
-          overflowY: 'auto',
-          padding: 2,
-          backgroundColor: '#ffffff',
-          borderRadius: '8px',
-          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-          scrollbarWidth: 'thin',
-          scrollbarColor: '#aaa transparent',
-          '&::-webkit-scrollbar': {
-            width: '4px',
-          },
-          '&::-webkit-scrollbar-thumb': {
-            backgroundColor: '#aaa',
-            borderRadius: '6px',
-          },
-          '&::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#888',
-          },
-          scrollBehavior: 'smooth',
-          flexGrow: 1,
-        }}
-      >
-        <Typography variant="h5" gutterBottom>
-          Professional Experience
-        </Typography>
-        <VerticalTimeline layout="1-column-left">
-          {experiences.map((exp, index) => (
+      <div className="summary summary-card">
+        {/* Decorative Background Shape */}
+        <div className="background-shape"></div>
+
+        {/* Header with Title and Icon */}
+        <div className="summary-header">
+          <Typography variant="h4" component="h2" className="summary-title">
+            {summary.title}
+          </Typography>
+          <summary.icon className="summary-icon" />
+        </div>
+
+        {/* Summary Content */}
+        <div className="summary-content">
+          {summary.content.map((section, index) => (
+            <Typography key={index} variant="body1" className="summary-text">
+              {section.heading && <strong>{section.heading}: </strong>}
+              {section.text}
+            </Typography>
+          ))}
+        </div>
+      </div>
+
+      {/* Row 2: Education, Timeline, and Skills */}
+      <div className="education-card">
+        <div className="background-shape"></div>
+        <div className="education-header">
+          <education.icon className="education-icon" />
+          <Typography variant="h4" component="h2" className="education-title">
+            {education.title}
+          </Typography>
+        </div>
+        <div className="education-content">
+          {education.content.map((item, index) => (
+            <div key={index} className="education-item">
+              <Typography variant="subtitle1" className="education-year">
+                {item.year}
+              </Typography>
+              <div className="education-details">
+                <Typography variant="h6" className="education-degree">
+                  {item.degree}
+                </Typography>
+                <Typography variant="body2" className="education-university">
+                  {item.university}
+                </Typography>
+                <Typography variant="body2" className="education-description">
+                  {item.description}
+                </Typography>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="timeline">
+        <h2>{timeline.title}</h2>
+        <VerticalTimeline>
+          {timeline.content.map((entry, index) => (
             <VerticalTimelineElement
               key={index}
-              date={exp.date}
-              icon={
-                <Box
-                  sx={{
-                    width: 36,
-                    height: 36,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: '#415161',
-                    borderRadius: '50%',
-                    color: '#fff',
-                    fontSize: '12px',
-                  }}
-                >
-                  {exp.year}
-                </Box>
-              }
-              contentStyle={{ background: '#415161', color: '#fff' }}
-              contentArrowStyle={{ borderRight: '7px solid  #415161' }}
+              date={entry.duration}
+              iconStyle={{ background: "#6c757d", color: "#fff" }}
+              icon={<timeline.icon />}
             >
-              <Typography variant="h6">{exp.title}</Typography>
-              <Typography variant="subtitle1" gutterBottom>
-                {exp.company}
-              </Typography>
-              <Typography variant="body2" sx={{ whiteSpace: 'pre-line', lineHeight: 1.6 }}>
-                {exp.description}
-              </Typography>
+              <h3>{entry.role}</h3>
+              <h4>{entry.title}</h4>
+              <ul>
+                {entry.details.map((detail, idx) => (
+                  <li key={idx}>{detail}</li>
+                ))}
+              </ul>
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
+      </div>
+
+      <Box className="skills-card" sx={{ mt: 4 }}>
+        <Box className="skills-card-header">
+          <Typography variant="h4" component="h2" className="skills-title">
+            {skills.title}
+          </Typography>
+          <Box className="background-shape"></Box>
+        </Box>
+        <Slider {...settings}>
+          {skills.groups.flatMap((group) =>
+            group.skills.map((skill, index) => (
+              <Box key={index} className="carousel-item" sx={{ textAlign: "center", padding: "16px" }}>
+                {/* Dynamic color applied to the icon */}
+                {React.createElement(skill.icon, {
+                  className: "skill-icon",
+                  style: { color: skill.color }, // Adjust icon color dynamically
+                })}
+                <Typography
+                  variant="body2"
+                  className="skill-title"
+                  sx={{
+                    mt: 1,
+                    color: "text.primary",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {skill.name}
+                </Typography>
+              </Box>
+            ))
+          )}
+        </Slider>
       </Box>
-    </Box>
+
+
+
+      {/* Row 3: Volunteer */}
+      <div className="volunteer">
+        <h2>{volunteer.title}</h2>
+        <ul>
+          {volunteer.content.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Row 4: Languages */}
+      <div className="languages">
+        <h2>{languages.title}</h2>
+        <ul>
+          {languages.content.map((language, index) => (
+            <li key={index}>{language}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 
