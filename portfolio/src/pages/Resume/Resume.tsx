@@ -110,27 +110,52 @@ const Resume: React.FC = () => {
         </div>
       </div>
 
-      <div className="timeline">
-        <h2>{timeline.title}</h2>
-        <VerticalTimeline>
+      <Box sx={{ mt: 4, px: 3 }} className="timeline-section">
+        <Typography variant="h4" sx={{ textAlign: "center", mb: 4 }}>
+          {timeline.title}
+        </Typography>
+        <VerticalTimeline layout="1-column-left">
           {timeline.content.map((entry, index) => (
             <VerticalTimelineElement
               key={index}
+              className="vertical-timeline-element--work"
+              contentStyle={{
+                background: "#2B3A48",
+                color: "#FFF",
+                borderRadius: "8px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                padding: "16px",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid #2B3A48" }}
               date={entry.duration}
-              iconStyle={{ background: "#6c757d", color: "#fff" }}
-              icon={<timeline.icon />}
+              iconStyle={{
+                background: "#6C757D",
+                color: "#FFF",
+              }}
+              icon={React.createElement(entry.icon)}
             >
-              <h3>{entry.role}</h3>
-              <h4>{entry.title}</h4>
-              <ul>
+              <Box sx={{ borderBottom: "1px solid rgba(255, 255, 255, 0.4)", mb: 2, pb: 1 }}>
+                <Box className="experience-card-title">
+                  <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+                    {entry.company}
+                  </Typography>
+                  <Typography>{entry.duration}</Typography>
+                </Box>
+                <Typography variant="subtitle1" sx={{ fontStyle: "italic", color: "#BDD0DB" }}>
+                  {entry.title}
+                </Typography>
+              </Box>
+              <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "#FFF" }}>
                 {entry.details.map((detail, idx) => (
-                  <li key={idx}>{detail}</li>
+                  <li key={idx} style={{ marginBottom: "0.5rem" }}>
+                    {detail}
+                  </li>
                 ))}
               </ul>
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
-      </div>
+      </Box>
 
       <Box className="skills-card" sx={{ mt: 4 }}>
         <Box className="skills-card-header">
@@ -164,8 +189,6 @@ const Resume: React.FC = () => {
           )}
         </Slider>
       </Box>
-
-
 
       {/* Row 3: Volunteer */}
       <div className="volunteer">

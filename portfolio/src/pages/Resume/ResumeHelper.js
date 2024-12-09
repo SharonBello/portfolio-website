@@ -85,7 +85,7 @@ const ResumeHelper = {
     icon: FaBriefcase,
     content: [
       {
-        role: "Girls Plus – Girls Technovation Challenge",
+        company: "Girls Plus – Girls Technovation Challenge",
         title: "Instructional Designer & Learning Developer",
         duration: "2024 - Present",
         details: [
@@ -96,7 +96,7 @@ const ResumeHelper = {
         icon: FaLightbulb,
       },
       {
-        role: "Treetoscope",
+        company: "Treetoscope",
         title: "Full Stack Developer",
         duration: "2022 – 2024",
         details: [
@@ -107,7 +107,7 @@ const ResumeHelper = {
         icon: FaCode,
       },
       {
-        role: "Cramim HS",
+        company: "Cramim HS",
         title:
           "Information and Technology Coordinator, Design and English Teacher",
         duration: "2016 – 2021",
@@ -119,7 +119,7 @@ const ResumeHelper = {
         icon: FaCode,
       },
       {
-        role: "Kidichick Ltd.",
+        company: "Kidichick Ltd.",
         title: "Design Director",
         duration: "2007 – 2015",
         details: [
