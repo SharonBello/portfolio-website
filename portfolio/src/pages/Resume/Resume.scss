@@ -181,3 +181,43 @@
   overflow: hidden;
   margin-top: unset !important;
 }
+
+/* Volunteer, Languages, and Certificates Section (Stacked Cards) */
+.bottom-cards {
+  grid-area: volunteer / span 3;
+  /* Span across full width for responsiveness */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h3 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .card {
+      flex: 1;
+      max-width: 32%;
+      /* Equal width for three cards */
+    }
+  }
+}

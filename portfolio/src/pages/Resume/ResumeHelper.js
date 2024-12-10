@@ -305,6 +305,13 @@ const ResumeHelper = {
     title: "Languages",
     content: ["Hebrew", "English", "Portuguese"],
   },
+  certificates: {
+    title: "Certificates",
+    content: [
+      "Full-Stack Development Bootcamp (2022)",
+      "Teaching Certificate in ESL (2017)",
+    ],
+  },
 };
 
 export default ResumeHelper;

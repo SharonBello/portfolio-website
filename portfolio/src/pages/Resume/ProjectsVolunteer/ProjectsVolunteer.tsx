@@ -1,17 +1,18 @@
-import "./ProjectsVolunteer.scss";
+import React from "react";
 
-const ProjectsVolunteer = (props: any): JSX.Element => {
-  const { volunteer } = props
+interface VolunteerProps {
+  volunteer: {
+    title: string;
+    content: string[];
+  };
+}
 
+const ProjectsVolunteer: React.FC<VolunteerProps> = ({ volunteer }) => {
   return (
-    <>
-      <h2>{volunteer.title}</h2>
-      <ul>
-        {volunteer.content.map((item: any, index: number) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </>
+    <div className="card">
+      <h3>{volunteer.title}</h3>
+      <p>{volunteer.content[0]}</p>
+    </div>
   );
 };
 

@@ -9,9 +9,10 @@ import ProjectsVolunteer from "./ProjectsVolunteer";
 import Profile from "./Profile";
 import Languages from "./Languages";
 import Experience from "./Experience";
+import Certificates from "./Certificates";
 
 const Resume: React.FC = () => {
-  const { summary, education, timeline, skills, volunteer, languages } = ResumeHelper;
+  const { summary, education, timeline, skills, volunteer, languages, certificates } = ResumeHelper;
 
   return (
     <div className="resume-container">
@@ -37,13 +38,10 @@ const Resume: React.FC = () => {
         <Skills skills={skills} />
       </Box>
 
-      {/* Row 3: Volunteer */}
-      <div className="volunteer">
+      {/* Row 3: Volunteer, Languages, Certificates */}
+      <div className="bottom-cards">
         <ProjectsVolunteer volunteer={volunteer} />
-      </div>
-
-      {/* Row 4: Languages */}
-      <div className="languages">
+        <Certificates certificates={certificates} />
         <Languages languages={languages} />
       </div>
     </div>

@@ -1,17 +1,18 @@
-import "./Languages.scss";
+import React from "react";
 
-const Languages = (props: any): JSX.Element => {
-  const { languages } = props
+interface LanguagesProps {
+  languages: {
+    title: string;
+    content: string[];
+  };
+}
 
+const Languages: React.FC<LanguagesProps> = ({ languages }) => {
   return (
-    <>
-      <h2>{languages.title}</h2>
-      <ul>
-        {languages.content.map((language: string, index: number) => (
-          <li key={index}>{language}</li>
-        ))}
-      </ul>
-    </>
+    <div className="card">
+      <h3>{languages.title}</h3>
+      <p>{languages.content.join(", ")}</p> {/* Comma-separated languages */}
+    </div>
   );
 };
 
