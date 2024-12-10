@@ -6,7 +6,7 @@
 .resume-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 25vh 55vh 40vh 30vh;
+  grid-template-rows: auto 55vh 40vh 30vh;
   /* Three equal columns */
   grid-template-areas:
     "picture summary summary"
@@ -23,7 +23,7 @@
 }
 
 /* Default styles for items */
-.picture,
+// .picture,
 .summary,
 .education,
 // .certificate,
@@ -50,16 +50,6 @@
   border: "4px solid #a0d468";
 }
 
-.MuiAvatar-root {
-  object-position: center; // Keep the image centered
-  box-shadow: "0 0 0 8px white, 0 4px 6px rgba(0, 0, 0, 0.1)";
-
-  & img {
-    width: 150%;
-    height: 150%;
-  }
-}
-
 .summary {
   grid-area: summary;
 }
@@ -69,66 +59,21 @@
   padding-inline: 6%;
   padding-block: 3%;
   background: #ffffff; // White background for card
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 20px;
-
-  .background-shape {
-    position: absolute;
-    top: -30px;
-    left: -20px;
-    width: 250px;
-    height: 150px;
-    background: $accent-light-yellow;
-    transform: rotate(-15deg);
-    z-index: 0;
-  }
-
-  .summary-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-
-    .summary-title {
-      z-index: 1;
-      font-size: clamp(1.8rem, 2.4vw, 2.8rem);
-      color: $text-dark-blue;
-      text-transform: uppercase;
-    }
-
-    .summary-icon {
-      font-size: clamp(1.5rem, 2.5vw, 3rem); // Responsive icon size
-      color: $border-dark-blue;
-      stroke-width: 10px; // Line thickness
-      fill: none; // No fill color
-    }
-  }
-
-  .summary-content {
-    z-index: 1;
-    text-align: left;
-
-    .summary-text {
-      line-height: 1.6;
-      color: $text-dark-blue;
-
-      strong {
-        font-weight: 600;
-        color: $text-dark-blue;
-      }
-    }
-  }
 }
 
 .education {
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  background: $background-white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   grid-area: education;
-}
-
-.education-card {
   position: relative;
   padding: 30px;
   background: #ffffff;
@@ -139,201 +84,20 @@
   /* Enable vertical scrolling */
   scrollbar-width: thin;
   /* Thin scrollbar for Firefox */
-  scrollbar-color: #ccc transparent;
+  scrollbar-color: #f1f1f1 transparent;
   background: white;
 
-  .timeline-section::-webkit-scrollbar {
-    width: 4px;
+  .education-card::-webkit-scrollbar {
+    width: 1px;
   }
 
-  .timeline-section::-webkit-scrollbar-thumb {
-    background: #ccc;
+  .education-card::-webkit-scrollbar-thumb {
+    background: #ffffff;
     border-radius: 8px;
   }
 
-  .timeline-section::-webkit-scrollbar-track {
+  .education-card::-webkit-scrollbar-track {
     background: transparent;
-  }
-
-  .background-shape {
-    position: absolute;
-    top: -30px;
-    right: -20px;
-    width: 150px;
-    height: 150px;
-    background: rgba(72, 187, 255, 0.3);
-    transform: rotate(15deg);
-    z-index: 0;
-  }
-
-  .education-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-
-    .education-title {
-      font-size: clamp(1.8rem, 2.4vw, 2.8rem);
-      color: $text-dark-blue;
-      text-transform: uppercase;
-    }
-
-    .education-icon {
-      font-size: clamp(2.4rem, 2.8vw, 3.2rem); // Responsive icon size
-      color: $border-dark-blue;
-      stroke-width: 10px; // Line thickness
-      fill: none; // No fill color
-
-      /* Icon position for larger screens */
-      @media (min-width: 1070px) {
-        position: absolute;
-        top: 0;
-        right: 0;
-        // transform: translate(-50%, 50%);
-      }
-    }
-  }
-
-  .education-content {
-    position: relative;
-    z-index: 1;
-    margin-top: 20px;
-
-    .education-item {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 20px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      .education-year {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-right: 20px;
-        color: $text-light-gray;
-        max-width: 33%;
-      }
-
-      .education-details {
-        border-left: 2px solid $border-medium-gray;
-        padding-left: 20px;
-
-        .education-degree {
-          font-size: 1rem;
-          font-weight: bold;
-          margin-bottom: 5px;
-          color: #333;
-        }
-
-        .education-university {
-          font-size: 0.9rem;
-          font-style: italic;
-          margin-bottom: 5px;
-          color: #666;
-        }
-
-        .education-description {
-          font-size: 0.9rem;
-          color: #555;
-        }
-      }
-    }
-  }
-
-  /* Styles for medium screens and below */
-  @media (max-width: 1070px) {
-    .education-header {
-      flex-direction: column;
-      align-items: center;
-
-      .education-icon {
-        margin-bottom: 10px;
-        font-size: 2rem;
-        position: static;
-        transform: none;
-      }
-
-      .education-title {
-        text-align: center;
-        margin-bottom: 10px;
-      }
-    }
-
-    .education-content {
-      .education-item {
-        flex-direction: column;
-        align-items: flex-start;
-
-        .education-year {
-          text-align: left;
-          margin-bottom: 5px;
-        }
-
-        .education-details {
-          border-left: none;
-          padding-left: 0;
-          border-top: 1px solid #ccc;
-          /* Line under the year */
-          padding-top: 10px;
-          width: 100%;
-
-          .education-degree,
-          .education-university,
-          .education-description {
-            text-align: left;
-          }
-        }
-      }
-    }
-  }
-
-
-  /* Styles for medium screens and below */
-  @media (max-width: 1070px) {
-    .education-header {
-      flex-direction: column;
-      align-items: center;
-
-      .education-icon {
-        margin-bottom: 10px;
-        font-size: 2rem;
-      }
-
-      .education-title {
-        text-align: center;
-        margin-bottom: 10px;
-      }
-    }
-
-    .education-content {
-      .education-item {
-        flex-direction: column;
-        align-items: flex-start;
-
-        .education-year {
-          text-align: left;
-          margin-bottom: 5px;
-        }
-
-        .education-details {
-          border-left: none;
-          padding-left: 0;
-          border-top: 1px solid #ccc;
-          /* Line under the year */
-          padding-top: 10px;
-          width: 100%;
-
-          .education-degree,
-          .education-university,
-          .education-description {
-            text-align: left;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -345,55 +109,22 @@
   /* Enable vertical scrolling */
   scrollbar-width: thin;
   /* Thin scrollbar for Firefox */
-  scrollbar-color: #ccc transparent;
+  scrollbar-color: #f1f1f1 transparent;
   background: white;
-  max-height: 97%;
+  padding-left: unset !important;
+  padding-right: unset !important;
+  padding-inline: 6% !important;
+  padding-block: 30px !important;
 
-  & h4 {
-    z-index: 1;
-    font-size: clamp(1.8rem, 2.4vw, 2.8rem);
-    color: $text-dark-blue;
-    text-transform: uppercase;
+  .timeline-section::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 8px;
   }
 
-  .vertical-timeline {
-    padding-block-start: unset;
+  .timeline-section::-webkit-scrollbar-track {
+    background: transparent;
   }
 }
-
-.experience-card-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-
-  & p {
-    margin: 0 !important;
-    // margin-bottom: 8px;
-
-  }
-}
-
-.timeline-section::-webkit-scrollbar {
-  width: 4px;
-}
-
-.timeline-section::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 8px;
-}
-
-.timeline-section::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.skills-card {
-  grid-area: skills-card;
-  grid-row: 3 / 4;
-}
-
-// .certificate {
-//   grid-area: certificate;
-// }
 
 .volunteer {
   grid-area: volunteer;
@@ -417,9 +148,10 @@
 }
 
 /* Small Screens (<=600px) */
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   .resume-container {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto 55vh auto 30vh;
     /* Single column layout */
     grid-template-areas:
       "summary"
@@ -439,6 +171,8 @@
 }
 
 .skills-card {
+  grid-area: skills-card;
+  // grid-row: 3 / 4;
   position: relative;
   padding: 20px;
   background: #ffffff; // Card background color
@@ -446,111 +180,4 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-top: unset !important;
-
-  .skills-card-header {
-    position: relative;
-    margin-bottom: 20px;
-
-    .skills-title {
-      font-size: clamp(1.8rem, 2.4vw, 2.8rem);
-      color: $text-dark-blue;
-      text-transform: uppercase;
-      z-index: 1;
-      position: relative;
-    }
-
-    .background-shape {
-      position: absolute;
-      top: -100px;
-      left: -80px;
-      width: 300px;
-      height: 200px;
-      background: $accent-hotpink; // Light orange shade
-      transform: rotate(-25deg);
-      z-index: 0;
-    }
-  }
-
-  .slick-slide {
-    width: unset !important;
-    margin-inline: 2vw;
-  }
-
-  .carousel-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; // Spacing between the icon and title
-
-    .skill-title {
-      font-size: 14px;
-      text-transform: capitalize;
-    }
-  }
-}
-
-
-.slick-slider>div>div>div {
-  transition: transform 0.3s ease, color 0.3s ease;
-  width: 100%;
-  height: 100%;
-  // min-width: 8vw;
-  // min-height: 8vw;
-
-  div {
-    width: 100%;
-    height: 100%;
-  }
-
-  svg {
-    transition: transform 0.3s ease, color 0.3s ease;
-    width: 8vw;
-    height: 8vw;
-
-    &:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-  }
-}
-
-.vertical-timeline-element-content {
-  padding: 20px;
-}
-
-.vertical-timeline-element--work .vertical-timeline-element-content {
-  background: #2b3a48;
-  color: white;
-  border-radius: 8px;
-}
-
-.vertical-timeline-element-date {
-  color: #bdd0db;
-  font-weight: 500;
-}
-
-.vertical-timeline-element-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // font-size: 24px;
-  background: #6c757d;
-  color: white;
-
-  & svg {
-    left: unset !important;
-    top: unset !important;
-    margin-left: unset !important;
-    margin-top: unset !important;
-  }
-
-
-}
-
-.timeline-section>div>div>div>div>h6 {
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-
 }

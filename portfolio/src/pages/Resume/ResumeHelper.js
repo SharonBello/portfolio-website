@@ -10,8 +10,9 @@ import {
   FaAngular,
   FaAws,
   FaHotjar,
-  FaLightbulb,
+  FaPlus,
   FaCode,
+  FaChalkboardTeacher,
 } from "react-icons/fa";
 import {
   SiAdobe,
@@ -30,7 +31,7 @@ import { ReactComponent as RiseIcon } from "../../styles/icons/rise-icon.svg";
 import { ReactComponent as CamtasiaIcon } from "../../styles/icons/camtasia-icon.svg";
 import { ReactComponent as H5PIcon } from "../../styles/icons/h5p-icon.svg";
 import { ReactComponent as BrowserStackIcon } from "../../styles/icons/browwserstack-icon.svg";
-import { MdEngineering } from "react-icons/md";
+import { MdEngineering, MdDesignServices } from "react-icons/md";
 
 const ResumeHelper = {
   summary: {
@@ -81,7 +82,7 @@ const ResumeHelper = {
     ],
   },
   timeline: {
-    title: "Professional Experience",
+    title: "Experience",
     icon: FaBriefcase,
     content: [
       {
@@ -93,7 +94,7 @@ const ResumeHelper = {
           "Developed onboarding materials, structured learning modules, and engaging activities to enhance mentoring and instructional effectiveness.",
           "Guided participants through creating innovative apps and business plans, culminating in a working app, video pitch, and app demo.",
         ],
-        icon: FaLightbulb,
+        icon: FaPlus,
       },
       {
         company: "Treetoscope",
@@ -116,7 +117,7 @@ const ResumeHelper = {
           "Monitored weekly learning progress for 200+ students and adjusted instruction to improve outcomes.",
           "Planned and executed yearly curricula, including remote learning components aligned with technological advancements.",
         ],
-        icon: FaCode,
+        icon: FaChalkboardTeacher,
       },
       {
         company: "Kidichick Ltd.",
@@ -126,7 +127,7 @@ const ResumeHelper = {
           "Directed creative teams in delivering high-quality design projects on time and within budget.",
           "Developed strategic design plans with projected timelines and budgets for key collections.",
         ],
-        icon: FaCode,
+        icon: MdDesignServices,
       },
     ],
   },

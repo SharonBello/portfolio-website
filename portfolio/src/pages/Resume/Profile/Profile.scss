@@ -1,0 +1,11 @@
+@import "../../../styles/global-styles/setup/colors.scss";
+
+.MuiAvatar-root {
+  object-position: center; // Keep the image centered
+  box-shadow: "0 0 0 8px white, 0 4px 6px rgba(0, 0, 0, 0.1)";
+
+  & img {
+    width: 150%;
+    height: 150%;
+  }
+}

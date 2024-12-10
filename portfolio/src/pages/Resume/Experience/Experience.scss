@@ -1,0 +1,152 @@
+@import "../../../styles/global-styles/setup/colors.scss";
+
+.timeline-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  font-size: clamp(1.8rem, 2.4vw, 2.8rem);
+  color: $text-dark-blue;
+  text-transform: uppercase;
+
+  .MuiTypography-root {
+    z-index: 1;
+    font-size: clamp(1.8rem, 2.4vw, 2.8rem);
+    color: $text-dark-blue;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .timeline-icon {
+    font-size: clamp(2.4rem, 2.8vw, 3.2rem); // Responsive icon size
+    color: $border-dark-blue;
+    stroke-width: 10px; // Line thickness
+    fill: none; // No fill color
+    width: 48px;
+
+    /* Icon position for larger screens */
+    @media (min-width: 1070px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+/* Styles for medium screens and below */
+@media (max-width: 1070px) {
+  .timeline-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+
+    .timeline-icon {
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+  }
+}
+
+.vertical-timeline {
+  padding-block-start: unset;
+}
+
+.experience-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1000px) {
+    flex-direction: column-reverse;
+    align-items: start;
+  }
+
+  & h6 {
+    text-align: left;
+    font-size: clamp(1.1rem, 1.2vw, 1.5rem);
+    margin-bottom: 0;
+  }
+
+  & p {
+    margin: 0 !important;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    // margin-bottom: 8px;
+  }
+
+  .experience-date {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: $text-light-gray;
+    gap: 4px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.vertical-timeline-element-content {
+  padding: 20px;
+  margin-top: 20px;
+  list-style: armenian;
+  color: $text-dark-blue;
+}
+
+.vertical-timeline-element--work .vertical-timeline-element-content {
+  background: $accent-light-yellow;
+  color: $text-dark-blue;
+  border-radius: 8px;
+  box-shadow: "0 4px 6px rgba(0, 0, 0, 0.1)";
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      text-align: left;
+      color: $text-dark-blue;
+      // font-size: clamp(0.5rem, 1.2vw, 1.2rem);
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.vertical-timeline-element-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // font-size: 24px;
+  background: $background-dark-blue;
+  color: white;
+
+  & svg {
+    left: unset !important;
+    top: unset !important;
+    margin-left: unset !important;
+    margin-top: unset !important;
+  }
+}
+
+.timeline-section>div>div>div>div>h6 {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  color: $text-dark-gray;
+}
+
+.experience-card-title-container {
+  border-bottom: 1px solid $background-dark-blue;
+}
+
+.vertical-timeline-element-content {
+
+  span.vertical-timeline-element-date {
+    display: none;
+  }
+}
