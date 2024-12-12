@@ -1,1 +1,76 @@
 @import "../../../styles/global-styles/setup/colors.scss";
+
+.certificate-card-container {
+    position: relative;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    .certificate-title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .certificate-title {
+            margin-bottom: 0;
+            text-align: left;
+            font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+            color: $text-dark-blue;
+            text-transform: uppercase;
+        }
+
+        .certificate-icon {
+            font-size: 2rem;
+            color: $text-dark-blue;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+
+    .certificate-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .certificate-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: $accent-light-yellow;
+            }
+
+            .certificate-row {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-bottom: 0.5rem;
+
+                .certificate-name {
+                    font-weight: bold;
+                    text-align: left;
+                }
+
+                .certificate-year {
+                    color: $text-medium-gray;
+                    text-align: right;
+                }
+            }
+
+            .certificate-company {
+                color: $text-dark-gray;
+                text-align: left;
+            }
+        }
+    }
+}

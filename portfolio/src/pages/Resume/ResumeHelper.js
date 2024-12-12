@@ -355,30 +355,34 @@ const ResumeHelper = {
     icon: HiOutlineDocumentText,
     content: [
       {
-        title: "Full-Stack Developer | Coding Academy (2022)",
-        img: "/images/certificates/coding-academy.jpg",
+        title: "Full-Stack Developer",
+        company: "Coding Academy",
+        year: "2022",
       },
       {
-        title:
-          "Founder's Journey - Build and Manage High-Growth Teams | University of Haifa (2022)",
-        img: "/images/certificates/founders-journey.jpg",
+        title: "Founder's Journey - Build and Manage High-Growth Teams",
+        company: "University of Haifa",
+        year: "2022",
       },
       {
-        title: "Teaching With Fortnite Creative | Unreal Engine (2021)",
-        img: "/images/certificates/teaching-fortnite.jpg",
+        title: "Teaching With Fortnite Creative",
+        company: "Unreal Engine",
+        year: "2021",
       },
       {
-        title:
-          "Group Facilitation in a Multidisciplinary Approach | Oranim Academic College of Education (2020)",
-        img: "/images/certificates/group-facilitation.jpg",
+        title: "Group Facilitation in a Multidisciplinary Approach",
+        company: "Oranim Academic College of Education",
+        year: "2020",
       },
       {
-        title: "Teaching Certificate in ESL (2016)",
-        img: "/images/certificates/teaching-esl.jpg",
+        title: "Teaching Certificate in ESL",
+        company: "Kibbutzim College",
+        year: "2016",
       },
       {
-        title: "Teaching Certificate in Design (2002)",
-        img: "/images/certificates/teaching-design.jpg",
+        title: "Teaching Certificate in Design",
+        company: "The NB Haifa School of Design",
+        year: "2002",
       },
     ],
   },
@@ -388,23 +392,76 @@ const ResumeHelper = {
     content: [
       {
         name: "Technovation Girls",
-        description: "Complete Mentor Training Curriculum (2024 - Present)",
-        link: "https://technovation.org/",
+        company: "Technovation",
+        icon: "",
+        role: "Mentor",
+        year: "2024 - Present",
+        description:
+          "Guided girls in developing technology-based solutions for their communities. Mentored through the Technovation platform to help foster innovation and problem-solving skills.",
+        link: "https://sites.google.com/atidplus.com/girlsplus?usp=sharing",
+        images: [
+          "../../styles/images/girlsPlus1.png",
+          "../../styles/images/girlsPlus2.png",
+          "../../styles/images/girlsPlus3.png",
+        ],
       },
       {
         name: "Dudi Sela Tennis Academy",
-        description: "Full Stack Developer (2022)",
+        company: "Dudi Sela Academy",
+        icon: "",
+        role: "Full Stack Developer",
+        year: "2022",
+        description:
+          "Developed a website for the Dudi Sela Tennis Academy to showcase programs, achievements, and enrollment information.",
         link: "https://dudisela.com/",
+        images: [
+          "https://via.placeholder.com/200x150?text=Dudi+1",
+          "https://via.placeholder.com/200x150?text=Dudi+2",
+          "https://via.placeholder.com/200x150?text=Dudi+3",
+        ],
+      },
+      {
+        name: "Michiko",
+        company: "Michiko",
+        icon: "",
+        role: "Co-Founder",
+        year: "2022",
+        description:
+          "Co-founded Michiko, focusing on environmental awareness through gamified learning.",
+        link: "https://climategame.example.com/",
+        images: [
+          "https://via.placeholder.com/200x150?text=Michiko+1",
+          "https://via.placeholder.com/200x150?text=Michiko+2",
+          "https://via.placeholder.com/200x150?text=Michiko+3",
+        ],
       },
       {
         name: "ClimateGame",
-        description: "Unit 8200 Hackathon - Full Stack Developer (2022)",
-        link: "https://climategame.example.com/",
+        company: "Unit 8200 Hackathon",
+        icon: "",
+        role: "Full Stack Developer",
+        year: "2022",
+        description:
+          "Built a gamified web application during a hackathon to educate users on climate change and sustainable practices.",
+        link: "https://github.com/SharonBello/ClimateGame-Sharon",
+        images: [
+          "../../styles/images/climateGame.png",
+          "../../styles/images/climateGame.gif",
+        ],
       },
       {
         name: "Wiserr",
-        description: "Full Stack Developer (2022)",
-        link: "https://wiserr.io/",
+        company: "Wiserr.io",
+        icon: "",
+        role: "Full Stack Developer",
+        year: "2022",
+        description:
+          "Collaborated on building a platform that connects seniors with mentors for skill development.",
+        link: "https://github.com/SharonBello/Wiserr-Frontend",
+        images: [
+          "../../styles/images/wiser1.png",
+          "../../styles/images/wiser2.png",
+        ],
       },
     ],
   },

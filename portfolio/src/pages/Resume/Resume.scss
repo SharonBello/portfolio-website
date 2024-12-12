@@ -27,7 +27,6 @@
 // .picture,
 .summary,
 .education,
-// .certificate,
 .bottom-cards,
 .timeline-section,
 .skills-card,
@@ -105,7 +104,6 @@
 .timeline-section {
   margin-top: unset !important;
   grid-area: timeline-section;
-  // height: 100%;
   overflow-y: auto;
   /* Enable vertical scrolling */
   scrollbar-width: thin;
@@ -132,21 +130,23 @@
 }
 
 /* Medium Screens (601px–900px) */
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 701px) and (max-width: 900px) {
   .resume-container {
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Three columns */
+    grid-template-columns: 1fr;
+    /* Single-column layout for this range */
     grid-template-areas:
-      "picture summary summary"
-      "education timeline-section timeline-section"
-      "skills-card skills-card skills-card"
-      "bottom-cards bottom-cards bottom-cards",
-      "volunteer-card volunteer-card volunteer-card";
+      "picture"
+      "summary"
+      "timeline-section"
+      "education"
+      "skills-card"
+      "bottom-cards"
+      "volunteer-card";
   }
 }
 
 /* Small Screens (<=600px) */
-@media (max-width: 760px) {
+@media (max-width: 700px) {
   .resume-container {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 55vh auto 1fr;
@@ -156,8 +156,8 @@
       "skills-card"
       "timeline-section"
       "education"
-      // "certificate"
-      "bottom-cards", "volunteer-card";
+      "bottom-cards",
+      "volunteer-card";
   }
 
   .picture {

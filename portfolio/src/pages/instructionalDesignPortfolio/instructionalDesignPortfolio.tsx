@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Container, Typography, Modal } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import Header from '../../components/Header';
 import PortfolioCard from '../../components/PortfolioCard';
-// import ContactForm from '../../components/ContactForm';
 
 const portfolioItems = [
   {
@@ -58,86 +56,28 @@ const instructionalDesignPortfolio: React.FC = () => {
 
   return (
     <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Full-width Header */}
-      <Box sx={{ width: '100%', backgroundColor: '#6c63ff', color: '#fff' }}>
-        <Header />
-      </Box>
-
       <Container component="main" sx={{ py: 4 }}>
-        <Grid container spacing={4}>
-          {/* Sidebar Section */}
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                boxShadow: 2,
-              }}
-            >
-              <Box sx={{ textAlign: 'center', mb: 3 }}>
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Profile"
-                  style={{
-                    width: 100,
-                    height: 100,
-                    borderRadius: '50%',
-                    marginBottom: 10,
-                  }}
-                />
-                <Typography variant="h6">Sharon Bello</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Instructional Designer
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                  Work Experience
-                </Typography>
-                <Typography variant="body2">Spring (2021 – Present)</Typography>
-              </Box>
-              <Box sx={{ mt: 3 }}>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                  Skills
-                </Typography>
-                <Typography variant="body2">React</Typography>
-                <Typography variant="body2">Photoshop</Typography>
-                <Typography variant="body2">Illustrator</Typography>
-              </Box>
-            </Box>
-          </Grid>
-
-          {/* Portfolio Section */}
-          <Grid size={{ xs: 12, md: 8 }}>
-            {/* <Typography variant="h4" gutterBottom>
+        {/* <Grid container spacing={4}> */}
+        {/* Portfolio Section */}
+        <Grid size={{ xs: 12, md: 8 }}>
+          {/* <Typography variant="h4" gutterBottom>
               Portfolio
             </Typography> */}
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              {portfolioItems.map((item, index) => (
-                <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
-                  <PortfolioCard
-                    title={item.title}
-                    description={item.description}
-                    image={item.image}
-                    link="#"
-                    onClick={() => handleCardClick(item)}
-                  />
-                </Grid>
-              ))}
-            </Grid>
+          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            {portfolioItems.map((item, index) => (
+              <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
+                <PortfolioCard
+                  title={item.title}
+                  description={item.description}
+                  image={item.image}
+                  link="#"
+                  onClick={() => handleCardClick(item)}
+                />
+              </Grid>
+            ))}
           </Grid>
-
-          {/* Contact Form Section */}
-          {/* <Grid size={{ xs: 12, md: 8 }}>
-            <Typography variant="h4" gutterBottom>
-              Contact Me
-            </Typography>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
-              <ContactForm />
-            </Box>
-          </Grid> */}
         </Grid>
+        {/* </Grid> */}
       </Container>
 
       {/* Modal for Card Details */}

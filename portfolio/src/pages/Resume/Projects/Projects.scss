@@ -1,1 +1,137 @@
 @import "../../../styles/global-styles/setup/colors.scss";
+
+.projects-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    scrollbar-width: thin;
+    /* Thin scrollbar for Firefox */
+    scrollbar-color: #f1f1f1 transparent;
+    background: white;
+
+    .projects-card::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    .projects-card::-webkit-scrollbar-thumb {
+        background: #ffffff;
+        border-radius: 8px;
+    }
+
+    .projects-card::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .projects-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .projects-title {
+            margin-bottom: 0;
+            text-align: left;
+            font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+            color: $text-dark-blue;
+            text-transform: uppercase;
+        }
+
+        .projects-icon {
+            font-size: 2rem;
+            color: $text-dark-blue;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .projects-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                background-color: $accent-light-yellow;
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            }
+
+            &.expanded {
+                background-color: #fff;
+            }
+
+            .project-summary {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                position: relative;
+
+                .project-info {
+                    text-align: left;
+
+                    .project-name {
+                        font-weight: bold;
+                        color: $text-dark-blue;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .project-details {
+                        font-size: 1.2rem;
+                        color: $text-dark-gray;
+                    }
+                }
+
+                .top-right-link {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                .expand-icon {
+                    font-size: 1.5rem;
+                    color: $text-light-gray;
+                    align-self: flex-end;
+                    padding-block: 0;
+                    cursor: pointer;
+                }
+            }
+
+            .project-expanded {
+                margin-top: 1rem;
+
+                .project-description {
+                    font-size: 0.9rem;
+                    color: $text-dark-blue;
+                    text-align: left;
+                    margin-bottom: 1rem;
+                }
+
+                .project-carousel {
+                    display: flex;
+                    gap: 10px;
+                    overflow-x: auto;
+
+                    .project-image {
+                        height: 200px;
+                        object-fit: cover;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    }
+                }
+            }
+        }
+    }
+}

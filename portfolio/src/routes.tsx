@@ -1,5 +1,4 @@
 import HomePage from './pages/HomePage';
-import About from './pages/About';
 import InstructionalDesignPortfolio from './pages/instructionalDesignPortfolio/instructionalDesignPortfolio';
 import EducationalGames from './pages/instructionalDesignPortfolio/EducationalGames';
 import ELearningProjects from './pages/instructionalDesignPortfolio/ELearningProjects';
@@ -41,10 +40,6 @@ const AppRoutes = [
         path: '/instructional-design-portfolio/technical-onboarding',
         component: <TechnicalOnboarding />
     },
-    {
-        path: '/about',
-        component: <About />
-    }
 ];
 
 export default AppRoutes;

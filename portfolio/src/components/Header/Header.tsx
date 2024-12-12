@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Box, Typography, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Box, Typography, Drawer, List, ListItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,6 @@ const Header: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'Resume', path: '/resume' },
     { name: 'Portfolio', path: '/instructional-design-portfolio' },
-    { name: 'About', path: '/about' },
   ];
 
 
