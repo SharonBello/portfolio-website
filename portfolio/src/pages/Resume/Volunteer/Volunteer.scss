@@ -1,0 +1,108 @@
+@import "../../../styles/global-styles/setup/colors.scss";
+
+.volunteer-title {
+    font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+    color: $text-dark-blue;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    margin-block: 15px 25px;
+}
+
+.volunteer-card-grid-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding-inline: 2vw;
+    padding-block: 1vh 2vh;
+
+    // Enforce strict column counts
+    @media (min-width: 1201px) {
+        grid-template-columns: repeat(4, 1fr); // 4 columns for large screens
+    }
+
+    @media (min-width: 601px) and (max-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr); // Strictly enforce 2 columns
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr; // Single column for small screens
+    }
+}
+
+.flip-volunteer-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    cursor: pointer;
+
+    .flip-volunteer-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+
+        &:hover {
+            transform: rotateY(180deg);
+        }
+    }
+
+    .flip-volunteer-card-front,
+    .flip-volunteer-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .flip-volunteer-card-front {
+        background-color: white;
+        color: $text-dark-blue;
+
+        & span {
+            width: 2em;
+            height: 2em;
+
+            & svg {
+                width: 90%;
+                height: auto;
+            }
+        }
+    }
+
+    .flip-volunteer-card-back {
+        color: $text-dark-blue;
+        transform: rotateY(180deg);
+    }
+}
+
+.volunteer-card>div>div:nth-child(1)>div>div.flip-volunteer-card-back {
+    background-color: $accent-light-yellow;
+}
+
+.volunteer-card>div>div:nth-child(2)>div>div.flip-volunteer-card-back {
+    background-color: $accent-hotpink;
+}
+
+.volunteer-card>div>div:nth-child(3)>div>div.flip-volunteer-card-back {
+    background-color: $accent-blue;
+}
+
+.volunteer-card>div>div:nth-child(4)>div>div.flip-volunteer-card-back {
+    background-color: $accent-mint;
+}
+
+.volunteer-card>div>div:nth-child(4)>div>div.flip-volunteer-card-front>span {
+    width: 3em;
+}

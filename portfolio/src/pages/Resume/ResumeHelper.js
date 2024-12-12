@@ -13,6 +13,7 @@ import {
   FaPlus,
   FaCode,
   FaChalkboardTeacher,
+  FaHandsHelping,
 } from "react-icons/fa";
 import {
   SiAdobe,
@@ -31,7 +32,14 @@ import { ReactComponent as RiseIcon } from "../../styles/icons/rise-icon.svg";
 import { ReactComponent as CamtasiaIcon } from "../../styles/icons/camtasia-icon.svg";
 import { ReactComponent as H5PIcon } from "../../styles/icons/h5p-icon.svg";
 import { ReactComponent as BrowserStackIcon } from "../../styles/icons/browwserstack-icon.svg";
+import { ReactComponent as ButterflyButtonIcon } from "../../styles/icons/butterflyButton-icon.svg";
+import { ReactComponent as GirlsPlusIcon } from "../../styles/icons/girlsPlus-icon.svg";
+import { ReactComponent as SheCodesIcon } from "../../styles/icons/sheCodes-icon.svg";
+import { ReactComponent as PrimapIcon } from "../../styles/icons/primap-icon.svg";
 import { MdEngineering, MdDesignServices } from "react-icons/md";
+import { BiWorld } from "react-icons/bi";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { RiProjectorLine } from "react-icons/ri";
 
 const ResumeHelper = {
   summary: {
@@ -297,19 +305,107 @@ const ResumeHelper = {
   },
   volunteer: {
     title: "Volunteer",
+    icon: FaHandsHelping,
     content: [
-      "SheCodes – Frontend Track mentor at the Tel-Aviv University Branch (2022)",
+      {
+        name: "Technovation Girls",
+        icon: <GirlsPlusIcon />,
+        year: "2022 - Present",
+        role: "Learning Experience Developer",
+        description:
+          "Technovation empowers girls to create technology-driven solutions, supported by mentors, and inspiring to shape a better future.",
+        link: "https://technovation.org/",
+      },
+      {
+        name: "SheCodes",
+        icon: <SheCodesIcon />,
+        year: "2022",
+        role: "Frontend Track mentor",
+        description:
+          "SheCodes aims to empower women by providing support and resources for learning to code, fostering community engagement, and enriching the learning experience.",
+        link: "https://www.shecodes.io/",
+      },
+      {
+        name: "The Butterfly Button",
+        icon: <ButterflyButtonIcon />,
+        year: "2022",
+        role: "UX/UI and FrontEnd Developer",
+        description:
+          "The Butterfly-Button is an embedded plugin which allows individuals suffering from domestic violence to get help.",
+        link: "https://www.butterfly-button.com/",
+      },
+      {
+        name: "Primap",
+        icon: <PrimapIcon />,
+        year: "2021 - 2022",
+        role: "Co-Creator & Full Stack Developer",
+        description:
+          "Collaborated with Rakefet NGO and Haifa Innovation Labs to create a platform addressing teenage social anxiety through targeted social activities and user-centered design.",
+        link: "https://rakefet-group.org.il/",
+      },
     ],
   },
   languages: {
     title: "Languages",
+    icon: BiWorld,
     content: ["Hebrew", "English", "Portuguese"],
   },
   certificates: {
     title: "Certificates",
+    icon: HiOutlineDocumentText,
     content: [
-      "Full-Stack Development Bootcamp (2022)",
-      "Teaching Certificate in ESL (2017)",
+      {
+        title: "Full-Stack Developer | Coding Academy (2022)",
+        img: "/images/certificates/coding-academy.jpg",
+      },
+      {
+        title:
+          "Founder's Journey - Build and Manage High-Growth Teams | University of Haifa (2022)",
+        img: "/images/certificates/founders-journey.jpg",
+      },
+      {
+        title: "Teaching With Fortnite Creative | Unreal Engine (2021)",
+        img: "/images/certificates/teaching-fortnite.jpg",
+      },
+      {
+        title:
+          "Group Facilitation in a Multidisciplinary Approach | Oranim Academic College of Education (2020)",
+        img: "/images/certificates/group-facilitation.jpg",
+      },
+      {
+        title: "Teaching Certificate in ESL (2016)",
+        img: "/images/certificates/teaching-esl.jpg",
+      },
+      {
+        title: "Teaching Certificate in Design (2002)",
+        img: "/images/certificates/teaching-design.jpg",
+      },
+    ],
+  },
+  projects: {
+    title: "Projects",
+    icon: RiProjectorLine,
+    content: [
+      {
+        name: "Technovation Girls",
+        description: "Complete Mentor Training Curriculum (2024 - Present)",
+        link: "https://technovation.org/",
+      },
+      {
+        name: "Dudi Sela Tennis Academy",
+        description: "Full Stack Developer (2022)",
+        link: "https://dudisela.com/",
+      },
+      {
+        name: "ClimateGame",
+        description: "Unit 8200 Hackathon - Full Stack Developer (2022)",
+        link: "https://climategame.example.com/",
+      },
+      {
+        name: "Wiserr",
+        description: "Full Stack Developer (2022)",
+        link: "https://wiserr.io/",
+      },
     ],
   },
 };
