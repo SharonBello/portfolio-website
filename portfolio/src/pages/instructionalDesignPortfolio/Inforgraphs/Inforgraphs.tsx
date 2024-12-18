@@ -1,146 +1,104 @@
-import React, { useState } from 'react';
-import { Box, Container, Typography, Modal } from '@mui/material';
-import Grid from '@mui/material/Grid2';
-import Header from '../../../components/Header';
-import PortfolioCard from '../../../components/PortfolioCard';
-// import ContactForm from '../../components/ContactForm';
+import React, { useState, useEffect, useRef } from 'react';
+import { Box, Typography, Card, CardActionArea, Modal } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import Masonry from '@mui/lab/Masonry';
+import { InfographicImages } from "../portfolioHelper";
 
-const portfolioItems = [
-  {
-    title: "Social Engineering: How Hackers Steal Your Data",
-    description: "Learn about social engineering tactics and how to protect yourself.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 1.",
-  },
-  {
-    title: "Diversity & Inclusion",
-    description: "Learn about diversity and inclusion principles.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 2.",
-  },
-  {
-    title: "Working on a Project: Goal Setting",
-    description: "Set clear goals to drive project success.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 3.",
-  },
-  {
-    title: "Time Management Tips",
-    description: "Discover effective time management strategies.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 4.",
-  },
-  {
-    title: "Effective Communication Skills",
-    description: "Improve your communication in professional settings.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 5.",
-  },
-  {
-    title: "Leadership and Teamwork",
-    description: "Learn how to lead and collaborate effectively.",
-    image: "https://via.placeholder.com/150",
-    details: "Detailed content for project 6.",
-  },
-];
+const ExpandableCard = styled(Card)(({ theme }) => ({
+  overflow: 'hidden',
+  borderRadius: 8,
+  transition: 'height 0.5s ease', // Smooth transition
+  cursor: 'pointer',
+}));
 
-const Inforgraphs: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<null | typeof portfolioItems[0]>(null);
+const InfographicGallery: React.FC = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [modalImage, setModalImage] = useState<{
+    title: string;
+    src: string;
+    description: string;
+  } | null>(null);
+  const [imageHeights, setImageHeights] = useState<{ collapsed: number; full: number }[]>([]);
 
-  const handleCardClick = (item: typeof portfolioItems[0]) => {
-    setSelectedProject(item);
+  const imageRefs = useRef<HTMLImageElement[]>([]); // References to images
+
+  // Calculate dynamic heights for collapsed and full views
+  useEffect(() => {
+    const heights = imageRefs.current.map((img) => {
+      if (img) {
+        const naturalHeight = img.naturalHeight;
+        const naturalWidth = img.naturalWidth;
+        const collapsedHeight = (150 / naturalWidth) * naturalHeight; // Set collapsed height proportionally
+        return { collapsed: collapsedHeight, full: naturalHeight };
+      }
+      return { collapsed: 200, full: 400 }; // Fallback heights
+    });
+    setImageHeights(heights);
+  }, []);
+
+  const handleToggle = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index); // Toggle expanded state
+  };
+
+  const handleOpenModal = (image: { title: string; src: string; description: string }) => {
+    setModalImage(image);
   };
 
   const handleCloseModal = () => {
-    setSelectedProject(null);
+    setModalImage(null);
   };
 
   return (
-    <Box sx={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Full-width Header */}
-      <Box sx={{ width: '100%', backgroundColor: '#6c63ff', color: '#fff' }}>
-        <Header />
-      </Box>
-
-      <Container component="main" sx={{ py: 4 }}>
-        <Grid container spacing={4}>
-          {/* Sidebar Section */}
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                boxShadow: 2,
-              }}
-            >
-              <Box sx={{ textAlign: 'center', mb: 3 }}>
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Profile"
-                  style={{
-                    width: 100,
-                    height: 100,
-                    borderRadius: '50%',
-                    marginBottom: 10,
-                  }}
-                />
-                <Typography variant="h6">Sharon Bello</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Instructional Designer
-                </Typography>
+    <Box sx={{ padding: 2, paddingInline: '6vw' }}>
+      <Typography variant="h4" textAlign="center" marginBottom={4}>
+        Infographic Gallery
+      </Typography>
+      <Masonry columns={3} spacing={6}>
+        {InfographicImages.map((image, index) => (
+          <ExpandableCard
+            key={index}
+            sx={{
+              height:
+                expandedIndex === index
+                  ? imageHeights[index]?.full || 400 // Full height dynamically calculated
+                  : imageHeights[index]?.collapsed || 200, // Collapsed height dynamically calculated
+              cursor: expandedIndex === index ? 'pointer' : 'default', // Pointer cursor for expanded state
+            }}
+            onClick={() => {
+              if (expandedIndex === index) handleOpenModal(image); // Open modal when expanded
+            }}
+          >
+            <CardActionArea onClick={() => handleToggle(index)}>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  width: '100%',
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  color: 'white',
+                  padding: '8px',
+                  textAlign: 'center',
+                  zIndex: 1,
+                }}
+              >
+                <Typography variant="subtitle2">{image.title}</Typography>
               </Box>
-              <Box>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                  Work Experience
-                </Typography>
-                <Typography variant="body2">Spring (2021 – Present)</Typography>
-              </Box>
-              <Box sx={{ mt: 3 }}>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                  Skills
-                </Typography>
-                <Typography variant="body2">React</Typography>
-                <Typography variant="body2">Photoshop</Typography>
-                <Typography variant="body2">Illustrator</Typography>
-              </Box>
-            </Box>
-          </Grid>
-
-          {/* Portfolio Section */}
-          <Grid size={{ xs: 12, md: 8 }}>
-            {/* <Typography variant="h4" gutterBottom>
-              Portfolio
-            </Typography> */}
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              {portfolioItems.map((item, index) => (
-                <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
-                  <PortfolioCard
-                    title={item.title}
-                    description={item.description}
-                    image={item.image}
-                    link="#"
-                    onClick={() => handleCardClick(item)}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-
-          {/* Contact Form Section */}
-          {/* <Grid size={{ xs: 12, md: 8 }}>
-            <Typography variant="h4" gutterBottom>
-              Contact Me
-            </Typography>
-            <Box sx={{ textAlign: 'center', mb: 3 }}>
-              <ContactForm />
-            </Box>
-          </Grid> */}
-        </Grid>
-      </Container>
-
-      {/* Modal for Card Details */}
-      <Modal open={!!selectedProject} onClose={handleCloseModal}>
+              <img
+                src={image.src}
+                alt={image.title}
+                ref={(el) => (imageRefs.current[index] = el!)} // Assign image to refs
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+            </CardActionArea>
+          </ExpandableCard>
+        ))}
+      </Masonry>
+      {/* Modal */}
+      <Modal open={!!modalImage} onClose={handleCloseModal}>
         <Box
           sx={{
             position: 'absolute',
@@ -148,26 +106,38 @@ const Inforgraphs: React.FC = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: '90%',
-            maxWidth: 400,
+            maxWidth: 800,
+            maxHeight: '80vh', // Limit modal height to 80% of viewport height
             bgcolor: 'background.paper',
             boxShadow: 24,
             borderRadius: 2,
+            overflowY: 'auto', // Enable scrolling if content exceeds height
             p: 4,
           }}
         >
-          <Typography variant="h5" sx={{ mb: 2 }}>
-            {selectedProject?.title}
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            {selectedProject?.details}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {selectedProject?.description}
-          </Typography>
+          {modalImage && (
+            <>
+              <Typography variant="h5" gutterBottom>
+                {modalImage.title}
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                {modalImage.description}
+              </Typography>
+              <img
+                src={modalImage.src}
+                alt={modalImage.title}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: 4,
+                }}
+              />
+            </>
+          )}
         </Box>
       </Modal>
     </Box>
   );
 };
 
-export default Inforgraphs;
+export default InfographicGallery;

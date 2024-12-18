@@ -1,11 +1,15 @@
 import HomePage from './pages/HomePage';
 import InstructionalDesignPortfolio from './pages/instructionalDesignPortfolio/instructionalDesignPortfolio';
-import EducationalGames from './pages/instructionalDesignPortfolio/EducationalGames';
-import ELearningProjects from './pages/instructionalDesignPortfolio/ELearningProjects';
-import Infographs from './pages/instructionalDesignPortfolio/Inforgraphs';
-import MentorTraining from './pages/instructionalDesignPortfolio/MentorTraining';
-import TechnicalOnboarding from './pages/instructionalDesignPortfolio/TechnicalOnboarding';
 import Resume from './pages/Resume';
+import StorylineCourses from './pages/instructionalDesignPortfolio/StorylineCourses';
+import Inforgraphs from './pages/instructionalDesignPortfolio/Inforgraphs';
+import EducationalGames from './pages/instructionalDesignPortfolio/EducationalGames';
+import Presentations from './pages/instructionalDesignPortfolio/Presentations';
+import FullCurriculum from './pages/instructionalDesignPortfolio/FullCurriculum';
+import Websites from './pages/instructionalDesignPortfolio/Websites';
+import Videos from './pages/instructionalDesignPortfolio/Videos';
+import TechnicalOnboarding from './pages/instructionalDesignPortfolio/TechnicalOnboarding';
+import ELearningProjects from './pages/instructionalDesignPortfolio/ELearningProjects';
 
 const AppRoutes = [
     {
@@ -21,24 +25,40 @@ const AppRoutes = [
         component: <InstructionalDesignPortfolio />
     },
     {
+        path: '/instructional-design-portfolio/storyline-courses',
+        component: <StorylineCourses />
+    },
+    {
+        path: '/instructional-design-portfolio/infographics',
+        component: <Inforgraphs />
+    },
+    {
+        path: '/instructional-design-portfolio/presentations',
+        component: <Presentations />
+    },
+    {
+        path: '/instructional-design-portfolio/full-curriculum',
+        component: <FullCurriculum />
+    },
+    {
+        path: '/instructional-design-portfolio/websites',
+        component: <Websites />
+    },
+    {
+        path: '/instructional-design-portfolio/videos',
+        component: <Videos />
+    },
+    {
         path: '/instructional-design-portfolio/educational-games',
         component: <EducationalGames />
     },
     {
-        path: '/instructional-design-portfolio/e-learning-projects',
-        component: <ELearningProjects />
-    },
-    {
-        path: '/instructional-design-portfolio/infographs',
-        component: <Infographs />
-    },
-    {
-        path: '/instructional-design-portfolio/mentor-training',
-        component: <MentorTraining />
-    },
-    {
         path: '/instructional-design-portfolio/technical-onboarding',
         component: <TechnicalOnboarding />
+    },
+    {
+        path: '/instructional-design-portfolio/e-learning-projects',
+        component: <ELearningProjects />
     },
 ];
 

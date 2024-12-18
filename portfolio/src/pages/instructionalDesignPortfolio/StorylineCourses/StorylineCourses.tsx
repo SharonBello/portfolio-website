@@ -44,7 +44,7 @@ const portfolioItems = [
   },
 ];
 
-const MentorTraining: React.FC = () => {
+const StorylineCourses: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<null | typeof portfolioItems[0]>(null);
 
   const handleCardClick = (item: typeof portfolioItems[0]) => {
@@ -170,4 +170,4 @@ const MentorTraining: React.FC = () => {
   );
 };
 
-export default MentorTraining;
+export default StorylineCourses;
