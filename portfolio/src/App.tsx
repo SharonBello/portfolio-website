@@ -7,11 +7,10 @@ import './main.scss';
 
 const App: React.FC = () => (
   <Router>
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* Header */}
+    <div className="app-container">
       <Header />
 
-      <main style={{ flexGrow: 1 }}>
+      <main style={{ flex: '1 0 auto' }}>
         <Routes>
           {AppRoutes.map((route) => (
             <Route key={route.path} element={route.component} path={route.path} />
@@ -19,7 +18,6 @@ const App: React.FC = () => (
         </Routes>
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   </Router>

@@ -10,7 +10,7 @@ import { loadSlim } from "tsparticles-slim";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-const settings = {
+const homePageSettings = {
   dots: true,
   infinite: true,
   speed: 500,
@@ -175,10 +175,10 @@ const HeroSection: React.FC = () => {
           <Typography variant="h4" align="center" gutterBottom>
             What I Have to Offer as an Learning Developer
           </Typography>
-          <Slider {...settings}>
+          <Slider {...homePageSettings}>
             {cardData.map((card, index) => (
               <Box key={index} sx={{ px: 2 }}>
-                <Card elevation={3} sx={{ maxWidth: 400, margin: '0 auto' }}>
+                <Card elevation={3} sx={{ maxWidth: 400, height: 280, margin: '0 auto' }}>
                   <CardContent>
                     <Typography
                       variant="h6"
@@ -200,7 +200,7 @@ const HeroSection: React.FC = () => {
                           width: '40px',
                           height: '3px',
                           backgroundColor: '#FFCB74',
-                          margin: '8px auto 0',
+                          margin: '16px auto 0px',
                         }}
                       />
                     </Typography>

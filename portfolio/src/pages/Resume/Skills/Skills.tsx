@@ -44,7 +44,7 @@ const Skills = (props: any): JSX.Element => {
         </Typography>
         <Box className="skills-background-shape"></Box>
       </Box>
-      <Slider {...settings}>
+      <Slider {...settings} className="skills-slider">
         {skills.groups.flatMap((group: { skills: any[]; }) =>
           group.skills.map((skill, index) => (
             <Box key={index} className="carousel-item" sx={{ textAlign: "center", padding: "16px" }}>

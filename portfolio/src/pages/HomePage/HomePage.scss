@@ -159,28 +159,33 @@ canvas {
   margin-top: 10vh !important;
 }
 
+.slick-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
 .slick-slide {
+  float: none !important;
   display: flex !important;
   justify-content: center;
   align-items: center;
-  margin: 2em auto;
+}
 
-
-  .MuiCard-root {
-    max-width: 400px;
-    width: 100%;
-    border-radius: 16px;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-
-    .MuiCardContent-root {
-      text-align: center;
-    }
+@media (max-width: 960px) {
+  .slick-slide {
+    max-width: 50%;
+    /* 2 slides per view */
   }
 }
+
+@media (max-width: 600px) {
+  .slick-slide {
+    max-width: 100%;
+    /* 1 slide per view */
+  }
+}
+
+.MuiCardContent-root.MuiTypography-root.MuiBox-root.MuiTypography-root {}
 
 .slick-dots {
   bottom: -30px;

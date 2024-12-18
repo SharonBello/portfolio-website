@@ -6,7 +6,7 @@
 .resume-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto 55vh auto auto 1fr;
+  grid-template-rows: auto 55vh 30vh auto 1fr;
   /* Three equal columns */
   grid-template-areas:
     "picture summary summary"
@@ -130,7 +130,7 @@
 }
 
 /* Medium Screens (601px–900px) */
-@media (min-width: 701px) and (max-width: 900px) {
+@media (max-width: 900px) {
   .resume-container {
     grid-template-columns: 1fr;
     /* Single-column layout for this range */
@@ -146,26 +146,26 @@
 }
 
 /* Small Screens (<=600px) */
-@media (max-width: 700px) {
-  .resume-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 55vh auto 1fr;
-    /* Single column layout */
-    grid-template-areas:
-      "summary"
-      "skills-card"
-      "timeline-section"
-      "education"
-      "bottom-cards",
-      "volunteer-card";
-  }
+// @media (max-width: 700px) {
+//   .resume-container {
+//     grid-template-columns: 1fr;
+//     grid-template-rows: auto 1fr 55vh auto 1fr;
+//     /* Single column layout */
+//     grid-template-areas:
+//       "summary"
+//       "skills-card"
+//       "timeline-section"
+//       "education"
+//       "bottom-cards",
+//       "volunteer-card";
+//   }
 
-  .picture {
-    display: none;
-    /* Hide picture on smaller screens */
-  }
+//   .picture {
+//     display: none !important;
+//     /* Hide picture on smaller screens */
+//   }
 
-}
+// }
 
 .skills-card {
   grid-area: skills-card;
@@ -176,6 +176,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-top: unset !important;
+  max-height: max-content;
 }
 
 .bottom-cards {
