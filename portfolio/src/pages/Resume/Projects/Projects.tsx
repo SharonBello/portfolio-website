@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import PDFModalViewer from "../../../components/PDFViewer/PDFModalViewer";
 import { Box, Typography, IconButton } from "@mui/material";
-import { FaGoogle, FaGithub, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaChevronDown, FaChevronUp, FaSeedling } from "react-icons/fa";
 import { RiProjectorLine } from "react-icons/ri";
 import "./Projects.scss";
+import PDFThumbnail from "../../../components/PDFViewer/PDFThumbnail";
+import VideoModalViewer from "../../../components/VideoModalViewer/VideoModalViewer";
+import VideoThumbnail from "../../../components/VideoModalViewer/VideoThumbnail";
+import ImageModalViewer from "../../../components/ImageModalViewer/ImageModalViewer";
 
 interface Project {
   name: string;
@@ -13,6 +18,8 @@ interface Project {
   description: string;
   link: string;
   images: string[];
+  pdfFile?: string[];
+  videoFile?: { path: string; thumbnail: string }[];
 }
 
 interface ProjectsProps {
@@ -33,6 +40,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const getIconForLink = (link: string) => {
     if (link.includes("https://technovation.org/") || link.includes("google")) {
       return <FaGoogle className="link-icon" />;
+    }
+    if (link.includes("https://rakefet-group.org.il/") || link.includes("rakefet-group")) {
+      return <FaSeedling className="link-icon" />;
     }
     return <FaGithub className="link-icon" />;
   };
@@ -99,12 +109,27 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 </Typography>
                 <Box className="project-carousel">
                   {project.images.map((image, i) => (
-                    <Box
+                    <ImageModalViewer
                       key={i}
-                      component="img"
-                      src={image}
-                      alt={`${project.name} screenshot ${i + 1}`}
-                      className="project-image"
+                      imageSrc={image}
+                      altText={`${project.name} screenshot ${i + 1}`}
+                    />
+                  ))}
+                  {/* {project.pdfFile && (
+                    <PDFViewer filePath={project.pdfFile} />
+                    )} */}
+                  {project.pdfFile && project.pdfFile.map((file, i) => (
+                    <PDFModalViewer
+                      key={i}
+                      filePath={file}
+                      thumbnailComponent={<PDFThumbnail pdfUrl={file} />}
+                    />
+                  ))}
+                  {project.videoFile && project.videoFile.map((file, i) => (
+                    <VideoModalViewer
+                      key={i}
+                      videoPath={file.path}
+                      thumbnailComponent={<VideoThumbnail videoUrl={file.path} />}
                     />
                   ))}
                 </Box>

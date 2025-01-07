@@ -1,3 +1,4 @@
+import { PptxGenJS } from "react-pptx";
 import {
   FaReact,
   FaNodeJs,
@@ -14,6 +15,7 @@ import {
   FaCode,
   FaChalkboardTeacher,
   FaHandsHelping,
+  FaSeedling,
 } from "react-icons/fa";
 import {
   SiAdobe,
@@ -40,6 +42,31 @@ import { MdEngineering, MdDesignServices } from "react-icons/md";
 import { BiWorld } from "react-icons/bi";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { RiProjectorLine } from "react-icons/ri";
+import girlsPlus1 from "../../styles/images/ProjectsImagesAndDocuments/girlsPlus1.png";
+import girlsPlus2 from "../../styles/images/ProjectsImagesAndDocuments/girlsPlus2.png";
+import girlsPlus3 from "../../styles/images/ProjectsImagesAndDocuments/girlsPlus3.png";
+import dudiSelaPic1 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic1.png";
+import dudiSelaPic2 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic2.png";
+import dudiSelaPic3 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic3.png";
+import dudiSelaPic4 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic4.png";
+import dudiSelaPic5 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic5.png";
+import dudiSelaPic6 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic6.png";
+import dudiSelaPic7 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic7.png";
+import dudiSelaPic8 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic8.png";
+import dudiSelaPic9 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic9.png";
+import dudiSelaPic10 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic10.png";
+import dudiSelaPic11 from "../../styles/images/ProjectsImagesAndDocuments/dudiSelaPic11.png";
+import michikoLogo from "../../styles/images/ProjectsImagesAndDocuments/michikoLogo.png";
+import michikoPoster from "../../styles/images/ProjectsImagesAndDocuments/michikoPoster.png";
+import michikoOnePager from "../../styles/images/ProjectsImagesAndDocuments/michikoOnePager.pdf";
+import michikoInvestorsPresentation from "../../styles/images/ProjectsImagesAndDocuments/michikoInvestorsPresentation.pdf";
+import michikoIntroVideo from "../../styles/images/ProjectsImagesAndDocuments/michikoIntroVideo.mp4";
+import climateGameMockup from "../../styles/images/ProjectsImagesAndDocuments/climateGameMockup.png";
+import climateGameGif from "../../styles/images/ProjectsImagesAndDocuments/climateGameGif.gif";
+import wiser1 from "../../styles/images/ProjectsImagesAndDocuments/wiser1.png";
+import wiser2 from "../../styles/images/ProjectsImagesAndDocuments/wiser2.png";
+import primapPoster from "../../styles/images/ProjectsImagesAndDocuments/primapPoster.png";
+import userSpecsPrimap from "../../styles/images/ProjectsImagesAndDocuments/userSpecsPrimap.png";
 
 const ResumeHelper = {
   summary: {
@@ -399,11 +426,7 @@ const ResumeHelper = {
         description:
           "Guided girls in developing technology-based solutions for their communities. Mentored through the Technovation platform to help foster innovation and problem-solving skills.",
         link: "https://sites.google.com/atidplus.com/girlsplus?usp=sharing",
-        images: [
-          "../../styles/images/girlsPlus1.png",
-          "../../styles/images/girlsPlus2.png",
-          "../../styles/images/girlsPlus3.png",
-        ],
+        images: [girlsPlus1, girlsPlus2, girlsPlus3],
       },
       {
         name: "Dudi Sela Tennis Academy",
@@ -413,11 +436,19 @@ const ResumeHelper = {
         year: "2022",
         description:
           "Developed a website for the Dudi Sela Tennis Academy to showcase programs, achievements, and enrollment information.",
-        link: "https://dudisela.com/",
+        link: "https://github.com/SharonBello/Dudi-Sela-WebApp-Frontend",
         images: [
-          "https://via.placeholder.com/200x150?text=Dudi+1",
-          "https://via.placeholder.com/200x150?text=Dudi+2",
-          "https://via.placeholder.com/200x150?text=Dudi+3",
+          dudiSelaPic1,
+          dudiSelaPic2,
+          dudiSelaPic3,
+          dudiSelaPic4,
+          dudiSelaPic5,
+          dudiSelaPic6,
+          dudiSelaPic7,
+          dudiSelaPic8,
+          dudiSelaPic9,
+          dudiSelaPic10,
+          dudiSelaPic11,
         ],
       },
       {
@@ -427,12 +458,15 @@ const ResumeHelper = {
         role: "Co-Founder",
         year: "2022",
         description:
-          "Co-founded Michiko, focusing on environmental awareness through gamified learning.",
-        link: "https://climategame.example.com/",
-        images: [
-          "https://via.placeholder.com/200x150?text=Michiko+1",
-          "https://via.placeholder.com/200x150?text=Michiko+2",
-          "https://via.placeholder.com/200x150?text=Michiko+3",
+          "Co-founded Michiko, focusing on education through gamified VR learning experience.",
+        link: "",
+        images: [michikoLogo, michikoPoster],
+        pdfFile: [michikoOnePager, michikoInvestorsPresentation],
+        videoFile: [
+          {
+            path: michikoIntroVideo,
+            thumbnail: "",
+          },
         ],
       },
       {
@@ -444,10 +478,7 @@ const ResumeHelper = {
         description:
           "Built a gamified web application during a hackathon to educate users on climate change and sustainable practices.",
         link: "https://github.com/SharonBello/ClimateGame-Sharon",
-        images: [
-          "../../styles/images/climateGame.png",
-          "../../styles/images/climateGame.gif",
-        ],
+        images: [climateGameMockup, climateGameGif],
       },
       {
         name: "Wiserr",
@@ -458,10 +489,18 @@ const ResumeHelper = {
         description:
           "Collaborated on building a platform that connects seniors with mentors for skill development.",
         link: "https://github.com/SharonBello/Wiserr-Frontend",
-        images: [
-          "../../styles/images/wiser1.png",
-          "../../styles/images/wiser2.png",
-        ],
+        images: [wiser1, wiser2],
+      },
+      {
+        name: "Primap",
+        company: "Primap - An innovative technological training platform",
+        icon: FaSeedling,
+        role: "Full Stack Developer",
+        year: "2022",
+        description:
+          "An innovative technological training platform to engage social anxiety teenagers in targeted social activties aiming to decrease social avoidence and improve conversational skills.",
+        link: "https://rakefet-group.org.il/",
+        images: [primapPoster, userSpecsPrimap],
       },
     ],
   },

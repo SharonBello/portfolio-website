@@ -1,5 +1,6 @@
 @import "../../../styles/global-styles/setup/colors.scss";
 
+
 .projects-card {
     position: relative;
     padding: 2rem;
@@ -12,14 +13,14 @@
     scrollbar-width: thin;
     /* Thin scrollbar for Firefox */
     scrollbar-color: #f1f1f1 transparent;
-    background: white;
 
     .projects-card::-webkit-scrollbar {
-        width: 1px;
+        width: 8px;
+        /* Make scrollbar more visible */
     }
 
     .projects-card::-webkit-scrollbar-thumb {
-        background: #ffffff;
+        background: #d1d1d1;
         border-radius: 8px;
     }
 
@@ -121,17 +122,30 @@
 
                 .project-carousel {
                     display: flex;
-                    gap: 10px;
+                    gap: 15px;
                     overflow-x: auto;
+                    padding-bottom: 10px;
+                    max-width: 100%;
 
                     .project-image {
-                        height: 200px;
+                        height: 250px;
                         object-fit: cover;
                         border-radius: 8px;
                         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
                     }
                 }
             }
         }
     }
+}
+
+iframe {
+    pointer-events: auto;
+    user-select: none;
 }

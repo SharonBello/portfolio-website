@@ -28,7 +28,7 @@ const InfographicGallery: React.FC = () => {
       if (img) {
         const naturalHeight = img.naturalHeight;
         const naturalWidth = img.naturalWidth;
-        const collapsedHeight = (150 / naturalWidth) * naturalHeight; // Set collapsed height proportionally
+        const collapsedHeight = (300 / naturalWidth) * naturalHeight; // Set collapsed height proportionally
         return { collapsed: collapsedHeight, full: naturalHeight };
       }
       return { collapsed: 200, full: 400 }; // Fallback heights
