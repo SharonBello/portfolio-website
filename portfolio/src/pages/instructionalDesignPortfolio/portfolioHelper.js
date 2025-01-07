@@ -19,6 +19,10 @@ import ReadingComprehension from "../../styles/images/PortfolioCards/Infographs/
 import SafetyPoster from "../../styles/images/PortfolioCards/Infographs/SafetyPoster.png";
 import Spelling from "../../styles/images/PortfolioCards/Infographs/Spelling.png";
 import StepUpReading from "../../styles/images/PortfolioCards/Infographs/StepUpReading.png";
+import actualConsumptionPlan from "../../styles/images/PortfolioCards/TechnicalOnboardingPdf/actualConsumptionPlan.pdf";
+import irrigationRequirementsPlan from "../../styles/images/PortfolioCards/TechnicalOnboardingPdf/irrigationRequirementsPlan.pdf";
+import serverComponentsStructure from "../../styles/images/PortfolioCards/TechnicalOnboardingPdf/serverComponentsStructure.pdf";
+import clientComponentsStructure from "../../styles/images/PortfolioCards/TechnicalOnboardingPdf/clientComponentsStructure.pdf";
 
 export const Categories = [
   {
@@ -86,6 +90,30 @@ export const Categories = [
 
 export const InfographicImages = [
   {
+    title: "Optical Illusion",
+    src: OpticalIllusion,
+    description:
+      "An artistic and educational illustration exploring the science of visual perception through optical illusions.",
+  },
+  {
+    title: "Graphic Design Principles - Line",
+    src: GraphicDesignPrinciplesLine,
+    description:
+      "Explains the importance of line as a fundamental principle in graphic design.",
+  },
+  {
+    title: "Graphic Design Principles - Shape & Volume",
+    src: GraphicDesignPrinciplesShape,
+    description:
+      "Covers the role of shape and volume in creating effective graphic designs.",
+  },
+  {
+    title: "Frontend/Backend Build",
+    src: FrontendBackendBuild,
+    description:
+      "A technical infographic detailing the setup for building frontend and backend projects with modern tools.",
+  },
+  {
     title: "Principles of SLA",
     src: PrinciplesOfInstructedSla,
     description:
@@ -128,33 +156,36 @@ export const InfographicImages = [
       "A safety-themed educational poster to promote awareness and safe practices.",
   },
   {
-    title: "Optical Illusion",
-    src: OpticalIllusion,
-    description:
-      "An artistic and educational illustration exploring the science of visual perception through optical illusions.",
-  },
-  {
-    title: "Graphic Design Principles - Line",
-    src: GraphicDesignPrinciplesLine,
-    description:
-      "Explains the importance of line as a fundamental principle in graphic design.",
-  },
-  {
-    title: "Graphic Design Principles - Shape & Volume",
-    src: GraphicDesignPrinciplesShape,
-    description:
-      "Covers the role of shape and volume in creating effective graphic designs.",
-  },
-  {
-    title: "Frontend/Backend Build",
-    src: FrontendBackendBuild,
-    description:
-      "A technical infographic detailing the setup for building frontend and backend projects with modern tools.",
-  },
-  {
     title: "BlueBird Poem",
     src: BlueBirdPoem,
     description:
       "An artistic representation of Charles Bukowski's poem 'Bluebird', capturing its emotional essence.",
+  },
+];
+
+export const TechnicalOnboardingPdfFiles = [
+  {
+    title: "Actual Consumption Plan",
+    src: actualConsumptionPlan,
+    description:
+      "Provides a detailed overview of the system's real-time resource consumption metrics, designed to help technical teams monitor and optimize system performance effectively.",
+  },
+  {
+    title: "Irrigation Requirements Plan",
+    src: irrigationRequirementsPlan,
+    description:
+      "Outlines the calculated irrigation requirements based on environmental factors, helping technical staff ensure accurate and efficient resource allocation.",
+  },
+  {
+    title: "Server Components Structure",
+    src: serverComponentsStructure,
+    description:
+      "Illustrates the architecture of server-side components, offering insights into backend operations, scalability considerations, and integration points.",
+  },
+  {
+    title: "Client Components Structure",
+    src: clientComponentsStructure,
+    description:
+      "Details the structure of client-side components, showcasing user interface design, data flow, and interaction patterns critical for frontend developers.",
   },
 ];
