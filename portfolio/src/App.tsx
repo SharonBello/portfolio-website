@@ -8,7 +8,10 @@ import './main.scss';
 const App: React.FC = () => (
   <Router>
     <div className="app-container">
-      <Header />
+      {/* Sticky site header */}
+      <div style={{ position: 'sticky', top: 0, zIndex: 200, background: '#fff' }}>
+        <Header />
+      </div>
 
       <main style={{ flex: '1 0 auto' }}>
         <Routes>

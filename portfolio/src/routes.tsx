@@ -10,6 +10,7 @@ import Websites from './pages/instructionalDesignPortfolio/Websites';
 import Videos from './pages/instructionalDesignPortfolio/Videos';
 import TechnicalOnboarding from './pages/instructionalDesignPortfolio/TechnicalOnboarding';
 import ELearningProjects from './pages/instructionalDesignPortfolio/ELearningProjects';
+import EmbeddedApp from './components/EmbeddedApp/EmbeddedApp';
 
 const AppRoutes = [
     {
@@ -60,10 +61,14 @@ const AppRoutes = [
         path: '/instructional-design-portfolio/e-learning-projects',
         component: <ELearningProjects />
     },
+    // ── EMBEDDED APPS ──────────────────────────────────────────────
+    // Any standalone app can be embedded here via the APP_REGISTRY.
+    // Link cards to: /instructional-design-portfolio/app/{id}
+    // The app opens in an iframe with the portfolio exit bar above it.
+    {
+        path: '/instructional-design-portfolio/app/:appId',
+        component: <EmbeddedApp />
+    },
 ];
 
 export default AppRoutes;
-
-
-
-

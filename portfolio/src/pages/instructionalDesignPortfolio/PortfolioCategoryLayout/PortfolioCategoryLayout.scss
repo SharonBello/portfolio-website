@@ -1,0 +1,145 @@
+$text-dark-blue: #415161;
+$background-white: #f6f6f6;
+$accent-light-yellow: #fbe7c6;
+$accent: #ffcb74;
+$border-light-gray: #e6e9eb;
+
+.portfolio-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $background-white;
+}
+
+// ── Sticky wrapper for breadcrumb + strip ───────────
+.portfolio-sticky-top {
+    position: sticky;
+    top: 0; /* sits just below the sticky app header */
+    z-index: 150;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+// ── Breadcrumb bar ──────────────────────────────────
+.portfolio-breadcrumb-bar {
+    padding: 10px 40px;
+    background: #fff;
+    border-bottom: 1px solid $border-light-gray;
+
+    .MuiBreadcrumbs-separator svg {
+        color: #b0bec5;
+    }
+
+    .breadcrumb-link {
+        font-size: 0.875rem;
+        color: $text-dark-blue;
+        cursor: pointer;
+        font-weight: 500;
+        transition: color 0.2s;
+        &:hover {
+            color: darken($text-dark-blue, 15%);
+        }
+    }
+
+    .breadcrumb-current {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: $text-dark-blue;
+    }
+}
+
+// ── Strip outer wrapper ─────────────────────────────
+.category-strip-outer {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-bottom: 2px solid $border-light-gray;
+    padding: 8px 12px;
+    gap: 8px;
+
+    .strip-arrow {
+        flex-shrink: 0;
+        color: $text-dark-blue;
+        background: $background-white;
+        border: 1px solid $border-light-gray;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+
+        &:hover {
+            background: $accent-light-yellow;
+        }
+        svg {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+// ── Scrollable chip strip ───────────────────────────
+.category-strip {
+    display: flex;
+    flex: 1;
+    gap: 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// ── Individual chip ─────────────────────────────────
+.category-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 6px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition:
+        background 0.2s,
+        transform 0.15s;
+    border: 2px solid transparent;
+    flex: 1 1 0;
+    min-width: 72px;
+
+    &:hover {
+        background: $accent-light-yellow;
+        transform: translateY(-2px);
+    }
+
+    &.active {
+        background: $accent-light-yellow;
+        border-color: $accent;
+    }
+
+    .category-chip-img {
+        width: 100%;
+        max-width: 90px;
+        height: 58px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .category-chip-label {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: $text-dark-blue;
+        text-align: center;
+        line-height: 1.3;
+        white-space: normal;
+    }
+}
+
+// ── Page content ───────────────────────────────────
+.portfolio-page-content {
+    flex: 1;
+    padding: 32px 48px;
+
+    @media (max-width: 768px) {
+        padding: 20px 16px;
+    }
+}
