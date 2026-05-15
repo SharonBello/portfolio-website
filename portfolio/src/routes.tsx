@@ -58,7 +58,7 @@ const AppRoutes = [
         component: <TechnicalOnboarding />
     },
     {
-        path: '/instructional-design-portfolio/e-learning-projects',
+        path: '/instructional-design-portfolio/elearning-projects',
         component: <ELearningProjects />
     },
     // ── EMBEDDED APPS ──────────────────────────────────────────────

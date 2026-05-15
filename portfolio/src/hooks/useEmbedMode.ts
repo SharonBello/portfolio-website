@@ -18,19 +18,19 @@
 import { useMemo } from 'react';
 
 interface EmbedModeResult {
-    /** True when the app is running inside the portfolio iframe */
-    isEmbedded: boolean;
-    /** The raw value of the ?embed param (null if not present) */
-    embedParam: string | null;
+  /** True when the app is running inside the portfolio iframe */
+  isEmbedded: boolean;
+  /** The raw value of the ?embed param (null if not present) */
+  embedParam: string | null;
 }
 
 export function useEmbedMode(): EmbedModeResult {
-    return useMemo(() => {
-        const params = new URLSearchParams(window.location.search);
-        const embedParam = params.get('embed');
-        const isEmbedded = embedParam === 'true' || embedParam === '1';
-        return { isEmbedded, embedParam };
-    }, []);
+  return useMemo(() => {
+    const params = new URLSearchParams(window.location.search);
+    const embedParam = params.get('embed');
+    const isEmbedded = embedParam === 'true' || embedParam === '1';
+    return { isEmbedded, embedParam };
+  }, []);
 }
 
 export default useEmbedMode;

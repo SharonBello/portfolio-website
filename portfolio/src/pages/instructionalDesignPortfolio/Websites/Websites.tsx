@@ -1,38 +1,60 @@
-import React, { useState } from "react";
-import { Box, Typography, Modal } from "@mui/material";
-import Grid from "@mui/material/Grid2";
-import PortfolioCard from "../../../components/PortfolioCard";
-import PortfolioCategoryLayout from "../PortfolioCategoryLayout/PortfolioCategoryLayout";
+import React from 'react';
+import { Box, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import PortfolioCard from '../../../components/PortfolioCard';
+import {
+  loomboxThumb,
+  floriginsThumb,
+  pansIsraelThumb,
+  girlsPlusThumb,
+} from '../../../assets/thumbnails';
 
-const portfolioItems = [
-  { title: "Social Engineering: How Hackers Steal Your Data", description: "Learn about social engineering tactics and how to protect yourself.", image: "https://via.placeholder.com/150", details: "Detailed content for project 1." },
-  { title: "Diversity & Inclusion", description: "Learn about diversity and inclusion principles.", image: "https://via.placeholder.com/150", details: "Detailed content for project 2." },
-  { title: "Working on a Project: Goal Setting", description: "Set clear goals to drive project success.", image: "https://via.placeholder.com/150", details: "Detailed content for project 3." },
+const websiteItems = [
+  {
+    title: 'Loombox',
+    description: 'AI-powered family story generator. Answer questions about your family and the app crafts personalised, shareable stories. Full-stack — React + Cloudflare Worker AI backend.',
+    image: loomboxThumb,
+    appRoute: '/instructional-design-portfolio/app/loombox',
+  },
+  {
+    title: 'Florigins',
+    description: 'Your ethnicity, origin, gender and preferences are algorithmically translated into a unique flower. Every user grows a different one. Complex generative UX/UI — freelance project.',
+    image: floriginsThumb,
+    appRoute: '/instructional-design-portfolio/app/florigins',
+  },
+  {
+    title: 'PANS PANDAS Israel',
+    description: 'Nonprofit advocacy website for PANS/PANDAS Israel — a rare paediatric neurological condition. Real client, custom domain panspandasil.org, real users.',
+    image: pansIsraelThumb,
+    appRoute: '/instructional-design-portfolio/app/pans-israel',
+  },
+  {
+    title: 'Girls Plus Training',
+    description: 'Platform for a year-long curriculum empowering teenage girls in tech and innovation — startup ideation, app development, and business planning. Curriculum designed and built by Sharon.',
+    image: girlsPlusThumb,
+    appRoute: '/instructional-design-portfolio/app/girls-plus',
+  },
 ];
 
-const Websites: React.FC = () => {
-  const [selected, setSelected] = useState<null | typeof portfolioItems[0]>(null);
-
-  return (
-    <PortfolioCategoryLayout>
-      <Typography variant="h4" gutterBottom>Websites</Typography>
-      <Grid container spacing={3}>
-        {portfolioItems.map((item, index) => (
-          <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
-            <PortfolioCard title={item.title} description={item.description} image={item.image} link="#" onClick={() => setSelected(item)} />
-          </Grid>
-        ))}
-      </Grid>
-
-      <Modal open={!!selected} onClose={() => setSelected(null)}>
-        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "90%", maxWidth: 400, bgcolor: "background.paper", boxShadow: 24, borderRadius: 2, p: 4 }}>
-          <Typography variant="h5" sx={{ mb: 2 }}>{selected?.title}</Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>{selected?.details}</Typography>
-          <Typography variant="body2" color="text.secondary">{selected?.description}</Typography>
-        </Box>
-      </Modal>
-    </PortfolioCategoryLayout>
-  );
-};
+const Websites: React.FC = () => (
+  <Box sx={{ width: '100%', minHeight: '100vh', py: 5, px: { xs: 2, md: 6 } }}>
+    <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>Websites</Typography>
+    <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+      Deployed web applications — freelance, client, and personal projects.
+    </Typography>
+    <Grid container spacing={3}>
+      {websiteItems.map((item, i) => (
+        <Grid key={i} size={{ xs: 12, sm: 6, md: 4 }}>
+          <PortfolioCard
+            title={item.title}
+            description={item.description}
+            image={item.image}
+            appRoute={item.appRoute}
+          />
+        </Grid>
+      ))}
+    </Grid>
+  </Box>
+);
 
 export default Websites;

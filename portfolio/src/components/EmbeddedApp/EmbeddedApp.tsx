@@ -18,31 +18,62 @@ export interface AppEntry {
 }
 
 export const APP_REGISTRY: AppEntry[] = [
+
+    // ── FREELANCE & CLIENT PROJECTS ──────────────────────────────────
+    // supportsEmbed becomes true once you add a _headers file to each
+    // Cloudflare Pages project (see useEmbedMode.ts for the file content)
+
+    {
+        id: 'loombox',
+        title: 'Loombox',
+        subtitle: 'AI-powered family story generator',
+        url: 'https://loombox.pages.dev',
+        supportsEmbed: false,
+        color: '#FFCB74',
+    },
+    {
+        id: 'florigins',
+        title: 'Florigins',
+        subtitle: 'Your identity becomes a unique flower',
+        url: 'https://florigins-app.pages.dev',
+        supportsEmbed: false,
+        color: '#E8634A',
+    },
+    {
+        id: 'pans-israel',
+        title: 'PANS PANDAS Israel',
+        subtitle: 'Advocacy & support for families',
+        url: 'https://panspandasil.org',
+        supportsEmbed: false,
+        color: '#389C9A',
+    },
+    {
+        id: 'girls-plus',
+        title: 'Girls Plus Training',
+        subtitle: 'Tech & innovation curriculum for teenage girls',
+        url: 'https://girlsplustraining.pages.dev',
+        supportsEmbed: false,
+        color: '#C0567A',
+    },
+
+    // ── ED-TECH & ID TOOLS ───────────────────────────────────────────
+
     {
         id: 'literature-portal',
         title: 'English Literature Portal',
-        subtitle: '5-Point Bagrut · 7 texts · HOTS & Bridging',
-        url: 'https://your-lit-portal.vercel.app',   // ← update when deployed
+        subtitle: '5-Point Bagrut — 7 texts — HOTS & Bridging',
+        url: 'https://lit-portal.pages.dev',
         supportsEmbed: true,
         color: '#C9A84C',
     },
     {
         id: 'ai-bagrut-scorer',
         title: 'AI Bagrut Scorer',
-        subtitle: 'MOE rubric-based answer scoring',
-        url: 'https://your-bagrut-scorer.vercel.app', // ← update when deployed
+        subtitle: 'MOE rubric-based scoring — instant feedback',
+        url: 'https://your-bagrut-scorer.vercel.app', // update when deployed
         supportsEmbed: true,
-        color: '#389C9A',
+        color: '#2E7D72',
     },
-    // Add more apps here as you build them:
-    // {
-    //   id: 'cbt-guide',
-    //   title: 'CBT Conversation Cards',
-    //   subtitle: 'AI guide for teachers',
-    //   url: 'https://your-cbt-app.vercel.app',
-    //   supportsEmbed: true,
-    //   color: '#5B4A8C',
-    // },
 ];
 
 /* ─────────────────────────────────────────────
